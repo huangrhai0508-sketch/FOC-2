@@ -1,0 +1,15 @@
+﻿# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+
+# Temporary
+*.tmp
+*.temp
+~$*
+
+# OS
+.DS_Store
