@@ -35,3 +35,22 @@ Format: `[Project-Number] YYYY-MM-DD - Description`
     7. Core communication interface documentation (Core0<->Core2 protocol)
 
 **Dependencies**: Model references FOC, CDD_ISP, MathLib - requires original project on MATLAB path
+**Beautified Models v2 (2026-07-29)**:
+  - `pmsmfoc_beautified.slx` - Top-level PMSM FOC controller
+  - `FOC_beautified.slx` - FOC algorithm sub-model
+  - `CDD_ISP_beautified.slx` - Calibration/ISP sub-model
+
+**Changes**:
+  - Full auto-layout using arrangeSystem (left-to-right MBD flow)
+  - All signal lines straightened (224 + 830 + 315 = 1369 lines total)
+  - Color-coded blocks by function:
+    - SubSystem: lightBlue
+    - ModelReference: cyan
+    - Inports: green
+    - Outports: magenta
+    - From/Goto: yellow
+    - RateTransition: gray
+    - BusSelector: orange
+  - Model info annotation added to each model
+  - Zoom-to-fit applied
+  - All sub-models (FOC, CDD_ISP) included in beautification
