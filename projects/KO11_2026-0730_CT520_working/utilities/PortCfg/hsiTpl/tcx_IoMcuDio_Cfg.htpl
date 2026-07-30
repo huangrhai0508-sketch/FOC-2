@@ -1,0 +1,15 @@
+/*
+ * tcx_IoMcuDio_Cfg.h
+ *
+ *  Created on: 2018-1-31
+ *      Author: zhengchen.sun
+ */
+
+#ifndef TCX_IOMCUDIO_CFG_H_
+#define TCX_IOMCUDIO_CFG_H_
+
+#include "Dio.h"
+
+@tcx_IoMcuDio_Cfg_htpl@
+
+#endif /* TCX_IOMCUDIO_CFG_H_ */

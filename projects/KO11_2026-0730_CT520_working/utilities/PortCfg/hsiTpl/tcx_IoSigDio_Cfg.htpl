@@ -1,0 +1,35 @@
+#ifndef TCX_IOSIGDIO_CFG_H
+#define TCX_IOSIGDIO_CFG_H
+
+//---------------------------------------------------------------------------------------------------------------------
+// Includes
+//---------------------------------------------------------------------------------------------------------------------
+
+/*
+ **********************************************************************************************************************
+ * Defines/Macros
+ **********************************************************************************************************************
+*/
+
+// Name of the file containing the memory mapping for this module
+#define TCX_IOSIGDIO_CFG_MEMMAP_H "tcx_IoSigDio_Cfg_MemMap.h"
+
+// Enables/disables the component
+#define TCX_IOSIGDIO_CFG_MODULE_ACTIVE                          STD_ON
+
+// Enables/disables the development error detection functionality
+#define TCX_IOSIGDIO_CFG_DEV_ERROR_DETECT                       STD_OFF
+
+// Enables/disables the version info API
+#define TCX_IOSIGDIO_CFG_VERSION_INFO_API                       STD_OFF
+//---------------------------------------------------------------------------------------------------------------------
+// Macros
+//---------------------------------------------------------------------------------------------------------------------
+// Device types
+#define TCX_IOSIGDIO_CFG_DEVICE_TYPE_ADC                        0 // Device driver name: tcx_IoSigDio_DioOverAdc
+#define TCX_IOSIGDIO_CFG_DEVICE_TYPE_DIO                        1 // Device driver name: tcx_IoMcuDio
+#define TCX_IOSIGDIO_CFG_DEVICE_TYPE_NULL                       2 // Device driver name: tcx_IoExtNull
+
+@tcx_IoSigDio_Cfg_htpl@
+
+#endif

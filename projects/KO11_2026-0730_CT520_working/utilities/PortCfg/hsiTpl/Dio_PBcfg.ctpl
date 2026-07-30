@@ -1,0 +1,62 @@
+/*
+ * Dio_PBcfg.c
+ *
+ *  Created on: 2018-1-31
+ *      Author: zhengchen.sun
+ */
+/*-------------------------------------------------------------------------------------------------------------------*
+ * Includes
+ *-------------------------------------------------------------------------------------------------------------------*/
+#include "Dio.h"
+#include "tcx_Reg.h"
+
+#if(MCU_RB_MACHINE_FAM == MCU_RB_IFX_UC1)
+#include TCX_REG_PORT_H
+#endif
+
+#define DIO_START_SEC_DEFAULT_CONST_UNSPECIFIED
+#include DIO_MEMMAP_H
+/* MISRA RULE 11.4 VIOLATION: Cast is needed her because we need an array of all port base addresses but each port has its own type (tcx_Reg_Pxx_tst) */
+/*@ START MARK FOR MFILE@*/
+/*static const Dio_SignalConfig_tst DioConfig_INVGEN2_ChannelId_acst[DIO_NUMBER_OF_SIGNALS] = {*/
+/*uint32* const Dio_PortInfo_acpu32[9] = {*/
+
+static const Dio_SignalConfig_tst DioConfig_INVGEN2_ChannelId_acst[DIO_NUMBER_OF_SIGNALS] = {
+	@Dio_PBcfg_ctpl@
+    
+};
+
+/*@ STOP MARK FOR MFILE@*/
+
+static const uint8 DioConfig_INVGEN2_PinPosId_acu8[3] = {
+       5, /* I_D_M1OCINT                    Pin: 05 */
+       8, /* I_D_M2OCINT                    Pin: 08 */
+       0, /* I_D_M3OCINT                    Pin: 00 */
+};
+
+
+
+static const uint8 DioConfig_INVGEN2_PortNameId_acu8[3] = {
+       4, /* M1OCINT                        Port: 15 */
+       4, /* M2OCINT                        Port: 15 */
+       5, /* M3OCINT                        Port: 20 */
+};
+
+
+
+const Dio_ConfigType DioConfig_INVGEN2 = {
+    DioConfig_INVGEN2_ChannelId_acst,
+    DioConfig_INVGEN2_PortNameId_acu8,
+    DioConfig_INVGEN2_PinPosId_acu8,
+};
+
+
+
+
+
+#define DIO_STOP_SEC_DEFAULT_CONST_UNSPECIFIED
+#include DIO_MEMMAP_H
+
+
+
+

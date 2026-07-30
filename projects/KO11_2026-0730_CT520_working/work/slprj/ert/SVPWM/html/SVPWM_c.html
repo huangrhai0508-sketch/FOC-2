@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="./js/coder_app.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./rtwreport_utils.js"></script>
+<script type="text/javascript" src="./rtwannotate.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/coder_app.css"/>
+</head>
+<body onload="srcFileOnload();">
+<pre id="code">
+<table class="code" id="codeTbl">
+<tr name="1" id="1">
+<td><a id="l1" class='ln'>1</a></td><td><span class="pp">#include "SVPWM.h"</span></td></tr>
+<tr name="2" id="2">
+<td><a id="l2" class='ln'>2</a></td><td><span class="pp">#include "rtwtypes.h"</span></td></tr>
+<tr name="3" id="3">
+<td><a id="l3" class='ln'>3</a></td><td><span class="pp">#include "SVPWM_types.h"</span></td></tr>
+<tr name="4" id="4">
+<td><a id="l4" class='ln'>4</a></td><td><span class="pp">#include &lt;string.h&gt;</span></td></tr>
+<tr name="5" id="5">
+<td><a id="l5" class='ln'>5</a></td><td><span class="pp">#include &lt;math.h&gt;</span></td></tr>
+<tr name="6" id="6">
+<td><a id="l6" class='ln'>6</a></td><td><span class="pp">#include "SVPWM_private.h"</span></td></tr>
+<tr name="7" id="7">
+<td><a id="l7" class='ln'>7</a></td><td><span class="pp">#include "look1_iflf_pbinlca.h"</span></td></tr>
+<tr name="8" id="8">
+<td><a id="l8" class='ln'>8</a></td><td><span class="kw">void</span> <a id="8c6" class="tk">kxj4bmtjtf_prot</a> ( <a id="8c24" class="tk">Duty</a> <a id="8c29" class="tk">*</a> <a id="8c31" class="tk">mnr0dzkazo_prot</a> , <a id="8c49" class="tk">naznc13ph2_prot</a> <a id="8c65" class="tk">*</a> <a id="8c67" class="tk">localDW</a> ) <span class="br">{</span></td></tr>
+<tr name="9" id="9">
+<td><a id="l9" class='ln'>9</a></td><td><span class="kw">if</span> ( <a id="9c6" class="tk">localDW</a> -&gt; <a id="9c17" class="tk">bdaxwpwnni_prot</a> ) <span class="br">{</span> <a id="9c37" class="tk">memset</a> ( <a id="9c46" class="tk">mnr0dzkazo_prot</a> , 0 , <span class="kw">sizeof</span> (</td></tr>
+<tr name="10" id="10">
+<td><a id="l10" class='ln'>10</a></td><td><a id="10c1" class="tk">Duty</a> ) ) ; <a id="10c12" class="tk">localDW</a> -&gt; <a id="10c23" class="tk">bdaxwpwnni_prot</a> = false ; <span class="br">}</span> <span class="br">}</span> <span class="kw">void</span> <a id="10c58" class="tk">SVPWM</a> ( <span class="kw">const</span></td></tr>
+<tr name="11" id="11">
+<td><a id="l11" class='ln'>11</a></td><td><a id="11c1" class="tk">boolean_T</a> <a id="11c11" class="tk">*</a> <a id="11c13" class="tk">dhgvp1s5vg_prot</a> , <span class="kw">const</span> <a id="11c37" class="tk">real32_T</a> <a id="11c46" class="tk">*</a> <a id="11c48" class="tk">jhpssbao2p_prot</a> , <span class="kw">const</span></td></tr>
+<tr name="12" id="12">
+<td><a id="l12" class='ln'>12</a></td><td><a id="12c1" class="tk">real32_T</a> <a id="12c10" class="tk">*</a> <a id="12c12" class="tk">fqb2ggdc3a_prot</a> , <span class="kw">const</span> <a id="12c36" class="tk">uint16_T</a> <a id="12c45" class="tk">*</a> <a id="12c47" class="tk">h02v2jwzw3_prot</a> , <span class="kw">const</span></td></tr>
+<tr name="13" id="13">
+<td><a id="l13" class='ln'>13</a></td><td><a id="13c1" class="tk">uint16_T</a> <a id="13c10" class="tk">*</a> <a id="13c12" class="tk">mda52bhutz_prot</a> , <a id="13c30" class="tk">Duty</a> <a id="13c35" class="tk">*</a> <a id="13c37" class="tk">mnr0dzkazo_prot</a> , <a id="13c55" class="tk">real32_T</a> <a id="13c64" class="tk">*</a></td></tr>
+<tr name="14" id="14">
+<td><a id="l14" class='ln'>14</a></td><td><a id="14c1" class="tk">bnsvj5idlz_prot</a> , <a id="14c19" class="tk">real32_T</a> <a id="14c28" class="tk">*</a> <a id="14c30" class="tk">cgldeb23l4_prot</a> , <a id="14c48" class="tk">real32_T</a> <a id="14c57" class="tk">*</a> <a id="14c59" class="tk">bqycvnd5k0_prot</a> ,</td></tr>
+<tr name="15" id="15">
+<td><a id="l15" class='ln'>15</a></td><td><a id="15c1" class="tk">naznc13ph2_prot</a> <a id="15c17" class="tk">*</a> <a id="15c19" class="tk">localDW</a> ) <span class="br">{</span> <span class="kw">if</span> ( <a id="15c36" class="tk">*</a> <a id="15c38" class="tk">dhgvp1s5vg_prot</a> ) <span class="br">{</span> <a id="15c58" class="tk">int32_T</a></td></tr>
+<tr name="16" id="16">
+<td><a id="l16" class='ln'>16</a></td><td><a id="16c1" class="tk">avsneesujh_prot</a> ; <a id="16c19" class="tk">real32_T</a> <a id="16c28" class="tk">hjyximx2vj_prot</a> ; <a id="16c46" class="tk">real32_T</a> <a id="16c55" class="tk">jt21qdqxjs_prot</a> ;</td></tr>
+<tr name="17" id="17">
+<td><a id="l17" class='ln'>17</a></td><td><a id="17c1" class="tk">real32_T</a> <a id="17c10" class="tk">klijse321x_prot</a> ; <a id="17c28" class="tk">real32_T</a> <a id="17c37" class="tk">ogismvpvhk_prot</a> ; <a id="17c55" class="tk">uint16_T</a></td></tr>
+<tr name="18" id="18">
+<td><a id="l18" class='ln'>18</a></td><td><a id="18c1" class="tk">hm41j0aqg0_prot</a> ; <a id="18c19" class="tk">uint16_T</a> <a id="18c28" class="tk">lqp1paytes_prot</a> ; <a id="18c46" class="tk">localDW</a> -&gt; <a id="18c57" class="tk">bdaxwpwnni_prot</a> =</td></tr>
+<tr name="19" id="19">
+<td><a id="l19" class='ln'>19</a></td><td>true ; <a id="19c8" class="tk">klijse321x_prot</a> = ( <a id="19c28" class="tk">*</a> <a id="19c30" class="tk">fqb2ggdc3a_prot</a> ) <a id="19c48" class="tk">*</a> ( <a id="19c52" class="tk">*</a> <a id="19c54" class="tk">fqb2ggdc3a_prot</a> ) ;</td></tr>
+<tr name="20" id="20">
+<td><a id="l20" class='ln'>20</a></td><td><a id="20c1" class="tk">hjyximx2vj_prot</a> = ( <a id="20c21" class="tk">*</a> <a id="20c23" class="tk">jhpssbao2p_prot</a> ) <a id="20c41" class="tk">*</a> ( <a id="20c45" class="tk">*</a> <a id="20c47" class="tk">jhpssbao2p_prot</a> ) ;</td></tr>
+<tr name="21" id="21">
+<td><a id="l21" class='ln'>21</a></td><td><a id="21c1" class="tk">jt21qdqxjs_prot</a> = <a id="21c19" class="tk">*</a> <a id="21c21" class="tk">fqb2ggdc3a_prot</a> ; <a id="21c39" class="tk">ogismvpvhk_prot</a> = <a id="21c57" class="tk">*</a> <a id="21c59" class="tk">jhpssbao2p_prot</a> ;</td></tr>
+<tr name="22" id="22">
+<td><a id="l22" class='ln'>22</a></td><td><a id="22c1" class="tk">lqp1paytes_prot</a> = ( <a id="22c21" class="tk">uint16_T</a> ) ( ( ( <a id="22c38" class="tk">uint32_T</a> ) ( ( <a id="22c53" class="tk">uint16_T</a> ) ( ( <a id="22c68" class="tk">int16_T</a> )</td></tr>
+<tr name="23" id="23">
+<td><a id="l23" class='ln'>23</a></td><td><a id="23c1" class="tk">floorf</a> ( 10430.3779F <a id="23c22" class="tk">*</a> <a id="23c24" class="tk">atan2f</a> ( <a id="23c33" class="tk">jt21qdqxjs_prot</a> , <a id="23c51" class="tk">ogismvpvhk_prot</a> ) ) ) ) ) <a id="23c77" class="tk">+</a></td></tr>
+<tr name="24" id="24">
+<td><a id="l24" class='ln'>24</a></td><td>( <a id="24c3" class="tk">*</a> <a id="24c5" class="tk">h02v2jwzw3_prot</a> ) ) ; <a id="24c27" class="tk">hm41j0aqg0_prot</a> = ( <a id="24c47" class="tk">uint16_T</a> ) ( <a id="24c60" class="tk">lqp1paytes_prot</a> <a id="24c76" class="tk">/</a></td></tr>
+<tr name="25" id="25">
+<td><a id="l25" class='ln'>25</a></td><td>10923U ) ; <a id="25c12" class="tk">avsneesujh_prot</a> = ( <a id="25c32" class="tk">uint16_T</a> ) ( <a id="25c45" class="tk">lqp1paytes_prot</a> <a id="25c61" class="tk">-</a> ( 10923U <a id="25c72" class="tk">*</a></td></tr>
+<tr name="26" id="26">
+<td><a id="l26" class='ln'>26</a></td><td><a id="26c1" class="tk">hm41j0aqg0_prot</a> ) ) ; <a id="26c23" class="tk">hjyximx2vj_prot</a> = <a id="26c41" class="tk">fminf</a> ( <a id="26c49" class="tk">sqrtf</a> ( <a id="26c57" class="tk">klijse321x_prot</a> <a id="26c73" class="tk">+</a></td></tr>
+<tr name="27" id="27">
+<td><a id="l27" class='ln'>27</a></td><td><a id="27c1" class="tk">hjyximx2vj_prot</a> ) , 1.1F ) ; <span class="kw">if</span> ( <a id="27c35" class="tk">hjyximx2vj_prot</a> <a id="27c51" class="tk">&gt;</a> 1.04897058F ) <span class="br">{</span></td></tr>
+<tr name="28" id="28">
+<td><a id="l28" class='ln'>28</a></td><td><a id="28c1" class="tk">klijse321x_prot</a> = 9.58738E-5F <a id="28c31" class="tk">*</a> ( ( <a id="28c37" class="tk">real32_T</a> ) <a id="28c48" class="tk">avsneesujh_prot</a> ) ;</td></tr>
+<tr name="29" id="29">
+<td><a id="l29" class='ln'>29</a></td><td><a id="29c1" class="tk">jt21qdqxjs_prot</a> = <a id="29c19" class="tk">look1_iflf_pbinlca</a> ( <a id="29c40" class="tk">hjyximx2vj_prot</a> , <a id="29c58" class="tk">lh1z2bl0vq_prot</a> .</td></tr>
+<tr name="30" id="30">
+<td><a id="l30" class='ln'>30</a></td><td><a id="30c1" class="tk">lrednyufpy_prot</a> , <a id="30c19" class="tk">lh1z2bl0vq_prot</a> . <a id="30c37" class="tk">dvolktf12c_prot</a> , <a id="30c55" class="tk">&amp;</a> <a id="30c57" class="tk">localDW</a> -&gt;</td></tr>
+<tr name="31" id="31">
+<td><a id="l31" class='ln'>31</a></td><td><a id="31c1" class="tk">lz1au2gg5h_prot</a> , 55U ) ; <span class="kw">switch</span> ( ( ( <a id="31c40" class="tk">klijse321x_prot</a> <a id="31c56" class="tk">&lt;=</a> <a id="31c59" class="tk">jt21qdqxjs_prot</a> )</td></tr>
+<tr name="32" id="32">
+<td><a id="l32" class='ln'>32</a></td><td><a id="32c1" class="tk">&lt;&lt;</a> 1 ) <a id="32c8" class="tk">+</a> ( <a id="32c12" class="tk">klijse321x_prot</a> <a id="32c28" class="tk">&gt;=</a> ( 1.04719758F <a id="32c45" class="tk">-</a> <a id="32c47" class="tk">jt21qdqxjs_prot</a> ) ) ) <span class="br">{</span> <span class="kw">case</span> 0</td></tr>
+<tr name="33" id="33">
+<td><a id="l33" class='ln'>33</a></td><td><a id="33c1" class="tk">:</a> <a id="33c3" class="tk">klijse321x_prot</a> = ( ( <a id="33c25" class="tk">klijse321x_prot</a> <a id="33c41" class="tk">-</a> <a id="33c43" class="tk">jt21qdqxjs_prot</a> ) <a id="33c61" class="tk">*</a> 0.52359879F ) <a id="33c77" class="tk">/</a></td></tr>
+<tr name="34" id="34">
+<td><a id="l34" class='ln'>34</a></td><td>( 0.52359879F <a id="34c15" class="tk">-</a> <a id="34c17" class="tk">jt21qdqxjs_prot</a> ) ; <span class="kw">break</span> ; <span class="kw">case</span> 1 <a id="34c52" class="tk">:</a> <a id="34c54" class="tk">klijse321x_prot</a> =</td></tr>
+<tr name="35" id="35">
+<td><a id="l35" class='ln'>35</a></td><td>1.04719758F ; <span class="kw">break</span> ; <span class="kw">default</span> <a id="35c31" class="tk">:</a> <a id="35c33" class="tk">klijse321x_prot</a> = 0.0F ; <span class="kw">break</span> ; <span class="br">}</span> <span class="kw">if</span> (</td></tr>
+<tr name="36" id="36">
+<td><a id="l36" class='ln'>36</a></td><td><a id="36c1" class="tk">klijse321x_prot</a> <a id="36c17" class="tk">&gt;</a> 1.04719758F ) <span class="br">{</span> <a id="36c35" class="tk">klijse321x_prot</a> = 1.04719758F ; <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> (</td></tr>
+<tr name="37" id="37">
+<td><a id="l37" class='ln'>37</a></td><td><a id="37c1" class="tk">klijse321x_prot</a> <a id="37c17" class="tk">&lt;</a> 0.0F ) <span class="br">{</span> <a id="37c28" class="tk">klijse321x_prot</a> = 0.0F ; <span class="br">}</span> <a id="37c55" class="tk">jt21qdqxjs_prot</a> =</td></tr>
+<tr name="38" id="38">
+<td><a id="l38" class='ln'>38</a></td><td>10430.3779F <a id="38c13" class="tk">*</a> <a id="38c15" class="tk">klijse321x_prot</a> ; <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <a id="38c42" class="tk">jt21qdqxjs_prot</a> = ( <a id="38c62" class="tk">real32_T</a> )</td></tr>
+<tr name="39" id="39">
+<td><a id="l39" class='ln'>39</a></td><td><a id="39c1" class="tk">avsneesujh_prot</a> ; <span class="br">}</span> <span class="kw">if</span> ( <a id="39c26" class="tk">hjyximx2vj_prot</a> <a id="39c42" class="tk">&gt;</a> 1.0F ) <span class="br">{</span> <a id="39c53" class="tk">hjyximx2vj_prot</a> =</td></tr>
+<tr name="40" id="40">
+<td><a id="l40" class='ln'>40</a></td><td><a id="40c1" class="tk">look1_iflf_pbinlca</a> ( <a id="40c22" class="tk">hjyximx2vj_prot</a> , <a id="40c40" class="tk">lh1z2bl0vq_prot</a> . <a id="40c58" class="tk">lcsru3ykfm_prot</a> ,</td></tr>
+<tr name="41" id="41">
+<td><a id="l41" class='ln'>41</a></td><td><a id="41c1" class="tk">lh1z2bl0vq_prot</a> . <a id="41c19" class="tk">lncqiwd3yw_prot</a> , <a id="41c37" class="tk">&amp;</a> <a id="41c39" class="tk">localDW</a> -&gt; <a id="41c50" class="tk">ok50tsgxad_prot</a> , 97U ) ; <span class="br">}</span></td></tr>
+<tr name="42" id="42">
+<td><a id="l42" class='ln'>42</a></td><td><a id="42c1" class="tk">klijse321x_prot</a> = <a id="42c19" class="tk">sinf</a> ( 9.58738E-5F <a id="42c38" class="tk">*</a> <a id="42c40" class="tk">jt21qdqxjs_prot</a> ) <a id="42c58" class="tk">*</a> <a id="42c60" class="tk">hjyximx2vj_prot</a> ;</td></tr>
+<tr name="43" id="43">
+<td><a id="l43" class='ln'>43</a></td><td><a id="43c1" class="tk">hjyximx2vj_prot</a> <a id="43c17" class="tk">*=</a> <a id="43c20" class="tk">sinf</a> ( ( ( <a id="43c31" class="tk">real32_T</a> ) ( ( <a id="43c46" class="tk">uint16_T</a> ) ( 10923U <a id="43c66" class="tk">-</a> ( (</td></tr>
+<tr name="44" id="44">
+<td><a id="l44" class='ln'>44</a></td><td><a id="44c1" class="tk">uint16_T</a> ) <a id="44c12" class="tk">jt21qdqxjs_prot</a> ) ) ) ) <a id="44c36" class="tk">*</a> 9.58738E-5F ) ; <a id="44c54" class="tk">jt21qdqxjs_prot</a> =</td></tr>
+<tr name="45" id="45">
+<td><a id="l45" class='ln'>45</a></td><td><a id="45c1" class="tk">klijse321x_prot</a> <a id="45c17" class="tk">+</a> <a id="45c19" class="tk">hjyximx2vj_prot</a> ; <span class="kw">if</span> ( <a id="45c42" class="tk">jt21qdqxjs_prot</a> <a id="45c58" class="tk">&lt;=</a> 1.0F ) <span class="br">{</span></td></tr>
+<tr name="46" id="46">
+<td><a id="l46" class='ln'>46</a></td><td><a id="46c1" class="tk">ogismvpvhk_prot</a> = 1.0F <a id="46c24" class="tk">-</a> <a id="46c26" class="tk">jt21qdqxjs_prot</a> ; <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <a id="46c53" class="tk">ogismvpvhk_prot</a> = 0.0F ;</td></tr>
+<tr name="47" id="47">
+<td><a id="l47" class='ln'>47</a></td><td><a id="47c1" class="tk">klijse321x_prot</a> <a id="47c17" class="tk">/=</a> <a id="47c20" class="tk">jt21qdqxjs_prot</a> ; <a id="47c38" class="tk">hjyximx2vj_prot</a> <a id="47c54" class="tk">/=</a> <a id="47c57" class="tk">jt21qdqxjs_prot</a> ; <span class="br">}</span></td></tr>
+<tr name="48" id="48">
+<td><a id="l48" class='ln'>48</a></td><td><span class="kw">switch</span> ( <a id="48c10" class="tk">hm41j0aqg0_prot</a> ) <span class="br">{</span> <span class="kw">case</span> 0 <a id="48c37" class="tk">:</a> <a id="48c39" class="tk">jt21qdqxjs_prot</a> = 1.0F <a id="48c62" class="tk">-</a> ( 0.5F <a id="48c71" class="tk">*</a></td></tr>
+<tr name="49" id="49">
+<td><a id="l49" class='ln'>49</a></td><td><a id="49c1" class="tk">ogismvpvhk_prot</a> ) ; <a id="49c21" class="tk">*</a> <a id="49c23" class="tk">bnsvj5idlz_prot</a> = <a id="49c41" class="tk">jt21qdqxjs_prot</a> ; <a id="49c59" class="tk">jt21qdqxjs_prot</a> <a id="49c75" class="tk">-=</a></td></tr>
+<tr name="50" id="50">
+<td><a id="l50" class='ln'>50</a></td><td><a id="50c1" class="tk">hjyximx2vj_prot</a> ; <a id="50c19" class="tk">*</a> <a id="50c21" class="tk">cgldeb23l4_prot</a> = <a id="50c39" class="tk">jt21qdqxjs_prot</a> ; <a id="50c57" class="tk">*</a> <a id="50c59" class="tk">bqycvnd5k0_prot</a> =</td></tr>
+<tr name="51" id="51">
+<td><a id="l51" class='ln'>51</a></td><td><a id="51c1" class="tk">jt21qdqxjs_prot</a> <a id="51c17" class="tk">-</a> <a id="51c19" class="tk">klijse321x_prot</a> ; <span class="kw">break</span> ; <span class="kw">case</span> 1 <a id="51c52" class="tk">:</a> <a id="51c54" class="tk">jt21qdqxjs_prot</a> = 1.0F <a id="51c77" class="tk">-</a></td></tr>
+<tr name="52" id="52">
+<td><a id="l52" class='ln'>52</a></td><td>( 0.5F <a id="52c8" class="tk">*</a> <a id="52c10" class="tk">ogismvpvhk_prot</a> ) ; <a id="52c30" class="tk">klijse321x_prot</a> = <a id="52c48" class="tk">jt21qdqxjs_prot</a> <a id="52c64" class="tk">-</a></td></tr>
+<tr name="53" id="53">
+<td><a id="l53" class='ln'>53</a></td><td><a id="53c1" class="tk">klijse321x_prot</a> ; <a id="53c19" class="tk">*</a> <a id="53c21" class="tk">bnsvj5idlz_prot</a> = <a id="53c39" class="tk">klijse321x_prot</a> ; <a id="53c57" class="tk">*</a> <a id="53c59" class="tk">cgldeb23l4_prot</a> =</td></tr>
+<tr name="54" id="54">
+<td><a id="l54" class='ln'>54</a></td><td><a id="54c1" class="tk">jt21qdqxjs_prot</a> ; <a id="54c19" class="tk">*</a> <a id="54c21" class="tk">bqycvnd5k0_prot</a> = <a id="54c39" class="tk">klijse321x_prot</a> <a id="54c55" class="tk">-</a> <a id="54c57" class="tk">hjyximx2vj_prot</a> ;</td></tr>
+<tr name="55" id="55">
+<td><a id="l55" class='ln'>55</a></td><td><span class="kw">break</span> ; <span class="kw">case</span> 2 <a id="55c16" class="tk">:</a> <a id="55c18" class="tk">jt21qdqxjs_prot</a> = 1.0F <a id="55c41" class="tk">-</a> ( 0.5F <a id="55c50" class="tk">*</a> <a id="55c52" class="tk">ogismvpvhk_prot</a> ) ; <a id="55c72" class="tk">*</a></td></tr>
+<tr name="56" id="56">
+<td><a id="l56" class='ln'>56</a></td><td><a id="56c1" class="tk">cgldeb23l4_prot</a> = <a id="56c19" class="tk">jt21qdqxjs_prot</a> ; <a id="56c37" class="tk">jt21qdqxjs_prot</a> <a id="56c53" class="tk">-=</a> <a id="56c56" class="tk">hjyximx2vj_prot</a> ; <a id="56c74" class="tk">*</a></td></tr>
+<tr name="57" id="57">
+<td><a id="l57" class='ln'>57</a></td><td><a id="57c1" class="tk">bqycvnd5k0_prot</a> = <a id="57c19" class="tk">jt21qdqxjs_prot</a> ; <a id="57c37" class="tk">*</a> <a id="57c39" class="tk">bnsvj5idlz_prot</a> = <a id="57c57" class="tk">jt21qdqxjs_prot</a> <a id="57c73" class="tk">-</a></td></tr>
+<tr name="58" id="58">
+<td><a id="l58" class='ln'>58</a></td><td><a id="58c1" class="tk">klijse321x_prot</a> ; <span class="kw">break</span> ; <span class="kw">case</span> 3 <a id="58c34" class="tk">:</a> <a id="58c36" class="tk">jt21qdqxjs_prot</a> = 1.0F <a id="58c59" class="tk">-</a> ( 0.5F <a id="58c68" class="tk">*</a></td></tr>
+<tr name="59" id="59">
+<td><a id="l59" class='ln'>59</a></td><td><a id="59c1" class="tk">ogismvpvhk_prot</a> ) ; <a id="59c21" class="tk">klijse321x_prot</a> = <a id="59c39" class="tk">jt21qdqxjs_prot</a> <a id="59c55" class="tk">-</a> <a id="59c57" class="tk">klijse321x_prot</a> ; <a id="59c75" class="tk">*</a></td></tr>
+<tr name="60" id="60">
+<td><a id="l60" class='ln'>60</a></td><td><a id="60c1" class="tk">cgldeb23l4_prot</a> = <a id="60c19" class="tk">klijse321x_prot</a> ; <a id="60c37" class="tk">*</a> <a id="60c39" class="tk">bqycvnd5k0_prot</a> = <a id="60c57" class="tk">jt21qdqxjs_prot</a> ; <a id="60c75" class="tk">*</a></td></tr>
+<tr name="61" id="61">
+<td><a id="l61" class='ln'>61</a></td><td><a id="61c1" class="tk">bnsvj5idlz_prot</a> = <a id="61c19" class="tk">klijse321x_prot</a> <a id="61c35" class="tk">-</a> <a id="61c37" class="tk">hjyximx2vj_prot</a> ; <span class="kw">break</span> ; <span class="kw">case</span> 4 <a id="61c70" class="tk">:</a></td></tr>
+<tr name="62" id="62">
+<td><a id="l62" class='ln'>62</a></td><td><a id="62c1" class="tk">jt21qdqxjs_prot</a> = 1.0F <a id="62c24" class="tk">-</a> ( 0.5F <a id="62c33" class="tk">*</a> <a id="62c35" class="tk">ogismvpvhk_prot</a> ) ; <a id="62c55" class="tk">hjyximx2vj_prot</a> =</td></tr>
+<tr name="63" id="63">
+<td><a id="l63" class='ln'>63</a></td><td><a id="63c1" class="tk">jt21qdqxjs_prot</a> <a id="63c17" class="tk">-</a> <a id="63c19" class="tk">hjyximx2vj_prot</a> ; <a id="63c37" class="tk">*</a> <a id="63c39" class="tk">bnsvj5idlz_prot</a> = <a id="63c57" class="tk">hjyximx2vj_prot</a> ; <a id="63c75" class="tk">*</a></td></tr>
+<tr name="64" id="64">
+<td><a id="l64" class='ln'>64</a></td><td><a id="64c1" class="tk">bqycvnd5k0_prot</a> = <a id="64c19" class="tk">jt21qdqxjs_prot</a> ; <a id="64c37" class="tk">*</a> <a id="64c39" class="tk">cgldeb23l4_prot</a> = <a id="64c57" class="tk">hjyximx2vj_prot</a> <a id="64c73" class="tk">-</a></td></tr>
+<tr name="65" id="65">
+<td><a id="l65" class='ln'>65</a></td><td><a id="65c1" class="tk">klijse321x_prot</a> ; <span class="kw">break</span> ; <span class="kw">default</span> <a id="65c35" class="tk">:</a> <a id="65c37" class="tk">jt21qdqxjs_prot</a> = 1.0F <a id="65c60" class="tk">-</a> ( 0.5F <a id="65c69" class="tk">*</a></td></tr>
+<tr name="66" id="66">
+<td><a id="l66" class='ln'>66</a></td><td><a id="66c1" class="tk">ogismvpvhk_prot</a> ) ; <a id="66c21" class="tk">*</a> <a id="66c23" class="tk">bnsvj5idlz_prot</a> = <a id="66c41" class="tk">jt21qdqxjs_prot</a> ; <a id="66c59" class="tk">jt21qdqxjs_prot</a> <a id="66c75" class="tk">-=</a></td></tr>
+<tr name="67" id="67">
+<td><a id="l67" class='ln'>67</a></td><td><a id="67c1" class="tk">klijse321x_prot</a> ; <a id="67c19" class="tk">*</a> <a id="67c21" class="tk">bqycvnd5k0_prot</a> = <a id="67c39" class="tk">jt21qdqxjs_prot</a> ; <a id="67c57" class="tk">*</a> <a id="67c59" class="tk">cgldeb23l4_prot</a> =</td></tr>
+<tr name="68" id="68">
+<td><a id="l68" class='ln'>68</a></td><td><a id="68c1" class="tk">jt21qdqxjs_prot</a> <a id="68c17" class="tk">-</a> <a id="68c19" class="tk">hjyximx2vj_prot</a> ; <span class="kw">break</span> ; <span class="br">}</span> <a id="68c47" class="tk">hjyximx2vj_prot</a> = <a id="68c65" class="tk">fminf</a> ( 1.0F</td></tr>
+<tr name="69" id="69">
+<td><a id="l69" class='ln'>69</a></td><td>, <a id="69c3" class="tk">*</a> <a id="69c5" class="tk">bqycvnd5k0_prot</a> ) ; <span class="kw">if</span> ( ( <a id="69c32" class="tk">*</a> <a id="69c34" class="tk">mda52bhutz_prot</a> ) <a id="69c52" class="tk">&gt;</a> 0 ) <span class="br">{</span> <a id="69c60" class="tk">klijse321x_prot</a> =</td></tr>
+<tr name="70" id="70">
+<td><a id="l70" class='ln'>70</a></td><td><a id="70c1" class="tk">fminf</a> ( 1.0F , <a id="70c16" class="tk">*</a> <a id="70c18" class="tk">cgldeb23l4_prot</a> ) ; <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <a id="70c47" class="tk">klijse321x_prot</a> =</td></tr>
+<tr name="71" id="71">
+<td><a id="l71" class='ln'>71</a></td><td><a id="71c1" class="tk">hjyximx2vj_prot</a> ; <a id="71c19" class="tk">hjyximx2vj_prot</a> = <a id="71c37" class="tk">fminf</a> ( 1.0F , <a id="71c52" class="tk">*</a> <a id="71c54" class="tk">cgldeb23l4_prot</a> ) ; <span class="br">}</span></td></tr>
+<tr name="72" id="72">
+<td><a id="l72" class='ln'>72</a></td><td><a id="72c1" class="tk">jt21qdqxjs_prot</a> = <a id="72c19" class="tk">fminf</a> ( 1.0F , <a id="72c34" class="tk">*</a> <a id="72c36" class="tk">bnsvj5idlz_prot</a> ) ; <span class="kw">if</span> ( <a id="72c61" class="tk">jt21qdqxjs_prot</a> <a id="72c77" class="tk">&lt;</a></td></tr>
+<tr name="73" id="73">
+<td><a id="l73" class='ln'>73</a></td><td>0.0F ) <span class="br">{</span> <a id="73c10" class="tk">mnr0dzkazo_prot</a> -&gt; <a id="73c29" class="tk">f32_DutyUon</a> = 0.0F ; <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <a id="73c59" class="tk">mnr0dzkazo_prot</a> -&gt;</td></tr>
+<tr name="74" id="74">
+<td><a id="l74" class='ln'>74</a></td><td><a id="74c1" class="tk">f32_DutyUon</a> = <a id="74c15" class="tk">jt21qdqxjs_prot</a> ; <span class="br">}</span> <span class="kw">if</span> ( <a id="74c40" class="tk">klijse321x_prot</a> <a id="74c56" class="tk">&lt;</a> 0.0F ) <span class="br">{</span></td></tr>
+<tr name="75" id="75">
+<td><a id="l75" class='ln'>75</a></td><td><a id="75c1" class="tk">mnr0dzkazo_prot</a> -&gt; <a id="75c20" class="tk">f32_DutyVon</a> = 0.0F ; <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <a id="75c50" class="tk">mnr0dzkazo_prot</a> -&gt;</td></tr>
+<tr name="76" id="76">
+<td><a id="l76" class='ln'>76</a></td><td><a id="76c1" class="tk">f32_DutyVon</a> = <a id="76c15" class="tk">klijse321x_prot</a> ; <span class="br">}</span> <span class="kw">if</span> ( <a id="76c40" class="tk">hjyximx2vj_prot</a> <a id="76c56" class="tk">&lt;</a> 0.0F ) <span class="br">{</span></td></tr>
+<tr name="77" id="77">
+<td><a id="l77" class='ln'>77</a></td><td><a id="77c1" class="tk">mnr0dzkazo_prot</a> -&gt; <a id="77c20" class="tk">f32_DutyWon</a> = 0.0F ; <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <a id="77c50" class="tk">mnr0dzkazo_prot</a> -&gt;</td></tr>
+<tr name="78" id="78">
+<td><a id="l78" class='ln'>78</a></td><td><a id="78c1" class="tk">f32_DutyWon</a> = <a id="78c15" class="tk">hjyximx2vj_prot</a> ; <span class="br">}</span> <span class="br">}</span> <span class="kw">else</span> <span class="kw">if</span> ( <a id="78c47" class="tk">localDW</a> -&gt; <a id="78c58" class="tk">bdaxwpwnni_prot</a> ) <span class="br">{</span></td></tr>
+<tr name="79" id="79">
+<td><a id="l79" class='ln'>79</a></td><td><a id="79c1" class="tk">memset</a> ( <a id="79c10" class="tk">mnr0dzkazo_prot</a> , 0 , <span class="kw">sizeof</span> ( <a id="79c41" class="tk">Duty</a> ) ) ; <a id="79c52" class="tk">localDW</a> -&gt; <a id="79c63" class="tk">bdaxwpwnni_prot</a></td></tr>
+<tr name="80" id="80">
+<td><a id="l80" class='ln'>80</a></td><td>= false ; <span class="br">}</span> <span class="br">}</span> <span class="kw">void</span> <a id="80c20" class="tk">bcegzfkptw_prot</a> ( <span class="kw">const</span> <a id="80c44" class="tk">char_T</a> <a id="80c51" class="tk">*</a> <a id="80c53" class="tk">*</a> <a id="80c55" class="tk">rt_errorStatus</a> ,</td></tr>
+<tr name="81" id="81">
+<td><a id="l81" class='ln'>81</a></td><td><a id="81c1" class="tk">i10oedhb1z_prot</a> <a id="81c17" class="tk">*</a> <span class="kw">const</span> <a id="81c25" class="tk">fp14zyuwlg_prot</a> ) <span class="br">{</span> <a id="81c45" class="tk">rtmSetErrorStatusPointer</a> (</td></tr>
+<tr name="82" id="82">
+<td><a id="l82" class='ln'>82</a></td><td><a id="82c1" class="tk">fp14zyuwlg_prot</a> , <a id="82c19" class="tk">rt_errorStatus</a> ) ; <span class="br">}</span></td></tr>
+<tr name="83" id="83">
+<td><a id="l83" class='ln'>83</a></td><td></td></tr>
+</table>
+</pre>
+</body>
+</html>

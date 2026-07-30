@@ -1,0 +1,59 @@
+
+//---------------------------------------------------------------------------------------------------------------------
+// Includes
+//---------------------------------------------------------------------------------------------------------------------
+
+#include "tcx_IoSigAdc.h"
+
+#include "tcx_IoMcuAdc.h"
+#if (!defined(TCX_IOMCUADC_AR_RELEASE_MAJOR_VERSION) || \
+    (TCX_IOMCUADC_AR_RELEASE_MAJOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MAJOR_VERSION))
+# error "AUTOSAR major version undefined or mismatched"
+#endif
+#if (!defined(TCX_IOMCUADC_AR_RELEASE_MINOR_VERSION) || \
+    (TCX_IOMCUADC_AR_RELEASE_MINOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MINOR_VERSION))
+# error "AUTOSAR minor version undefined or mismatched"
+#endif
+#include "tcx_IoMcuAdc.h"
+#if (!defined(TCX_IOMCUADC_AR_RELEASE_MAJOR_VERSION) || \
+    (TCX_IOMCUADC_AR_RELEASE_MAJOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MAJOR_VERSION))
+# error "AUTOSAR major version undefined or mismatched"
+#endif
+#if (!defined(TCX_IOMCUADC_AR_RELEASE_MINOR_VERSION) || \
+    (TCX_IOMCUADC_AR_RELEASE_MINOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MINOR_VERSION))
+# error "AUTOSAR minor version undefined or mismatched"
+#endif
+#include "tcx_IoExtNull_Adc.h"
+#if (!defined(TCX_IOEXTNULL_AR_RELEASE_MAJOR_VERSION) || \
+    (TCX_IOEXTNULL_AR_RELEASE_MAJOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MAJOR_VERSION))
+# error "AUTOSAR major version undefined or mismatched"
+#endif
+#if (!defined(TCX_IOEXTNULL_AR_RELEASE_MINOR_VERSION) || \
+    (TCX_IOEXTNULL_AR_RELEASE_MINOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MINOR_VERSION))
+# error "AUTOSAR minor version undefined or mismatched"
+#endif
+
+//---------------------------------------------------------------------------------------------------------------------
+// Configuration data
+//---------------------------------------------------------------------------------------------------------------------
+
+#define  TCX_IOSIGADC_START_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+#include TCX_IOSIGADC_CFG_MEMMAP_H
+
+
+// Array of descriptors of all signals used in data set "tcx_IoSigAdc_ConfigSet_INVGEN2"
+static const tcx_IoSigAdc_SignalConfig_tst tcx_IoSigAdc_ConfigSet_INVGEN2SignalDescs_acst[TCX_IOSIGADC_CFG_NR_SIGNALS] =
+//Updated by C:\Projects\Yundi\motorcontrol\utilities\PortCfg\hsiGenVadc  2018-11-06 00:57:37
+{
+	@tcx_IoSigAdc_PBcfg_ctpl@
+    
+};
+const tcx_IoSigAdc_ConfigType tcx_IoSigAdc_ConfigSet_INVGEN2 =
+{
+    tcx_IoSigAdc_ConfigSet_INVGEN2SignalDescs_acst
+};
+
+
+#define  TCX_IOSIGADC_STOP_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+#include TCX_IOSIGADC_CFG_MEMMAP_H
+

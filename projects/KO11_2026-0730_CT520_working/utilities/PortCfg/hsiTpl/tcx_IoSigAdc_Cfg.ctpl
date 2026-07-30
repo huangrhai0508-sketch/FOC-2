@@ -1,0 +1,52 @@
+
+//---------------------------------------------------------------------------------------------------------------------
+// Includes
+//---------------------------------------------------------------------------------------------------------------------
+
+#include "tcx_IoSigAdc.h"
+#include "tcx_IoSigAdc_Prv.h"
+
+#include "tcx_IoMcuAdc.h"
+#if (!defined(TCX_IOMCUADC_AR_RELEASE_MAJOR_VERSION) || \
+    (TCX_IOMCUADC_AR_RELEASE_MAJOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MAJOR_VERSION))
+# error "AUTOSAR major version undefined or mismatched"
+#endif
+#if (!defined(TCX_IOMCUADC_AR_RELEASE_MINOR_VERSION) || \
+    (TCX_IOMCUADC_AR_RELEASE_MINOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MINOR_VERSION))
+# error "AUTOSAR minor version undefined or mismatched"
+#endif
+#include "tcx_IoExtNull_Adc.h"
+#if (!defined(TCX_IOEXTNULL_AR_RELEASE_MAJOR_VERSION) || \
+    (TCX_IOEXTNULL_AR_RELEASE_MAJOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MAJOR_VERSION))
+# error "AUTOSAR major version undefined or mismatched"
+#endif
+#if (!defined(TCX_IOEXTNULL_AR_RELEASE_MINOR_VERSION) || \
+    (TCX_IOEXTNULL_AR_RELEASE_MINOR_VERSION != TCX_IOSIGADC_AR_RELEASE_MINOR_VERSION))
+# error "AUTOSAR minor version undefined or mismatched"
+#endif
+
+
+//---------------------------------------------------------------------------------------------------------------------
+// Configuration data
+//---------------------------------------------------------------------------------------------------------------------
+
+#define  TCX_IOSIGADC_START_SEC_CONFIG_DATA_UNSPECIFIED
+#include TCX_IOSIGADC_CFG_MEMMAP_H
+
+const tcx_IoSigAdc_DeviceInterface_tst * const tcx_IoSigAdc_Cfg_DeviceInterfaces_acpcst[2] =
+{
+    &tcx_IoMcuAdc_DeviceInterface_cst,
+    &tcx_IoExtNull_AdcInterface_cst
+};
+
+const tcx_IoSigAdc_SignalDescriptor_tst tcx_IoSigAdc_SignalDescriptor_acpcst[TCX_IOSIGADC_CFG_NR_SIGNALS] =
+{
+ //         RefVoltage | QfMultiplication |  RouFactor  | Quantization | Offset |  Flags |  Resolution
+
+	@tcx_IoSigAdc_Cfg_ctpl@
+
+};
+
+#define  TCX_IOSIGADC_STOP_SEC_CONFIG_DATA_UNSPECIFIED
+#include TCX_IOSIGADC_CFG_MEMMAP_H
+

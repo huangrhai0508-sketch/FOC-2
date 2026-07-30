@@ -1,0 +1,18 @@
+    g_msgCore0to2_pwmFrqSet
+    
+        PWMFrqSwitch_C
+    
+    PMC_tiPerd
+ISP_speedref_final
+ISP_n
+Trqdes_P1
+PMC_IsqDes
+PMC_IsdDes
+PMC_UsdFlt
+PMC_UsqFlt
+usage
+PMC_UsMax
+PMC_TrqOutEst
+PMC_stGateDrv
+ISP_agRtrElecAtan2
+PMC_flgReqSafeSt

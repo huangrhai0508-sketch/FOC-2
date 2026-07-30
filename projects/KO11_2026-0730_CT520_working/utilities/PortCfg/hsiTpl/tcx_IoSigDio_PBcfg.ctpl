@@ -1,0 +1,40 @@
+
+/*
+ **********************************************************************************************************************
+ * Includes
+ **********************************************************************************************************************
+*/
+#include "tcx_IoSigDio.h"
+//#include "tcx_IoSigDio_DioOverAdc.h"
+#include "tcx_IoMcuDio.h"
+//#include "tcx_IoExtNull_Dio.h"
+
+
+
+
+/*
+ **********************************************************************************************************************
+ * Configuration data
+ **********************************************************************************************************************
+*/
+
+#define  TCX_IOSIGDIO_START_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+#include TCX_IOSIGDIO_CFG_MEMMAP_H
+
+
+// Array of descriptors of all signals used in data set "tcx_IoSigDio_ConfigSet_INVGEN2"
+static const tcx_IoSigDio_SignalConfig_tst tcx_IoSigDio_ConfigSet_INVGEN2SignalDescs_acst[TCX_IOSIGDIO_CFG_NUM_SIGNALS] =
+{
+		@tcx_IoSigDio_PBcfg_ctpl@
+};
+
+const tcx_IoSigDio_ConfigType tcx_IoSigDio_ConfigSet_INVGEN2 =
+{
+    tcx_IoSigDio_ConfigSet_INVGEN2SignalDescs_acst
+};
+
+
+#define  TCX_IOSIGDIO_STOP_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+#include TCX_IOSIGDIO_CFG_MEMMAP_H
+
+

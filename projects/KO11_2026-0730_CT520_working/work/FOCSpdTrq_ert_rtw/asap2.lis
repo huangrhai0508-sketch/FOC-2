@@ -1,0 +1,126 @@
+    cripple_T_P1    
+    cphase_T_P1    
+    f32_P_SpdNeglimit_rpm
+    
+        f32_P_SpdPoslimit_rpm
+    
+        f32_P_SpeedPiMaxRatio
+    
+        f32_P_SpeedPiMinRatio
+    
+        g_msgCore0to2_AsrKpHi
+    
+        g_msgCore0to2_AsrKpLo
+    
+        g_msgCore0to2_AsrKpZero
+    
+        g_msgCore0to2_AsrSwtHiRpm
+    
+        g_msgCore0to2_AsrSwtLoRpm
+    
+        g_msgCore0to2_AsrTiHi
+    
+        g_msgCore0to2_AsrTiLo
+    
+        g_msgCore0to2_AsrTiZero
+    
+        g_msgCore0to2_Asrctrlmode
+    
+        g_msgCore0to2_HFcoef
+    
+        g_msgCore0to2_H_coef
+    
+        g_msgCore0to2_K1
+    
+        g_msgCore0to2_K2
+    
+        g_msgCore0to2_K3
+    
+        g_msgCore0to2_Kvp
+    
+        g_msgCore0to2_LFcoef
+    
+        g_msgCore0to2_LPF_coef
+    
+        g_msgCore0to2_L_coef
+    
+        g_msgCore0to2_R_Kr
+    
+        g_msgCore0to2_R_Outputlimit
+    
+        g_msgCore0to2_R_Wc
+    
+        g_msgCore0to2_R_outputGain
+    
+        g_msgCore0to2_alphaLow
+    
+        g_msgCore0to2_betaLow
+    
+        g_msgCore0to2_cos_Amp
+    
+        g_msgCore0to2_cos_frq
+    
+        g_msgCore0to2_cos_phase
+    
+        g_msgCore0to2_frqfix_K
+    
+        g_msgCore0to2_maxCur2
+    
+        g_msgCore0to2_maxTrq2
+    
+        g_msgCore0to2_sin_Amp
+    
+        g_msgCore0to2_sin_frq
+    
+        g_msgCore0to2_sin_phase
+    
+        g_msgCoreoto2_R_woGain
+    
+        g_msgCore0to2_CalibEn2
+    
+        g_msgCore0to2_K1switch
+    
+        g_msgCore0to2_K3switch
+    
+        g_msgCore0to2_Rswitch
+    
+        g_msgCore0to2_Trqfix
+    
+    FOC_Kp
+FOC_Ki
+total_fixtrq
+comp_P1
+R_wo
+R_finaloutput
+Trqcomp_Max_P1
+Trqcomp_Min_P1
+K1_value_P1
+K3_value_P1
+AntiWindup_coef
+AsrKp_Calvalue
+AntiWindup_Signal
+K1_Limitvalue_P1
+LPFsinwave
+LPFcoswave
+sinfixtrq
+cosfixtrq
+R_output
+coswave
+sinwave
+FFout
+FFintgin_value
+FFKp_value
+PDFF_SpdrefMuxKff
+PDFF_Kvp_coef
+alpha
+beta
+beta_signal
+wave_P1
+AntiWindup_out
+AntiWindup_integral
+AntiWindup_Kpvalue
+err_thresh_high
+err_thresh_low
+AntiWindup_Alfa
+PIout
+Asrintgin_value

@@ -1,0 +1,609 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript">function rtwTableShrink(o) {var t = o.nextSibling;if (t.nodeType != 1) {t = t.nextSibling;}if (t.style.display == "none") {t.style.display = "";o.innerHTML = "[-]"} else {t.style.display = "none";o.innerHTML = "[+] ... "}}</script><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+SVPWM 的接口报告
+</title>
+
+</head>
+<body ONLOAD="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdCodeInterface'); else local_onload();}} catch(err) {};">
+<h1>
+SVPWM 的接口报告
+</h1>
+<h3>
+目录
+</h3>
+<ul>
+<li>
+<a href="#sec_ERT_的入口函数">
+ERT 的入口函数
+</a>
+
+</li>
+<li>
+<a href="#sec_输入端口">
+输入端口
+</a>
+
+</li>
+<li>
+<a href="#sec_输出端口">
+输出端口
+</a>
+
+</li>
+<li>
+<a href="#sec_接口参数">
+接口参数
+</a>
+
+</li>
+<li>
+<a href="#sec_数据存储">
+数据存储
+</a>
+
+</li>
+
+</ul>
+<h3>
+<a name="sec_ERT_的入口函数">
+ERT 的入口函数
+</a>
+
+</h3>
+<p>
+函数: <a href="SVPWM_c.html#fcn_bcegzfkptw_prot">bcegzfkptw_prot</a>
+</p>
+<table width="100%" class="AltRow" cellspacing="0">
+<tr class="even">
+<td width="25%" align="left" valign="top">
+原型
+</td>
+<td width="75%" align="left" valign="top">
+<b>
+void bcegzfkptw_prot(const char_T&nbsp;**rt_errorStatus, i10oedhb1z_prot&nbsp;*const&nbsp;fp14zyuwlg_prot)
+</b>
+
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+描述
+</td>
+<td width="75%" align="left" valign="top">
+生成代码的初始化入口函数
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+定时
+</td>
+<td width="75%" align="left" valign="top">
+只能调用一次
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+参数
+</td>
+<td width="75%" align="left" valign="top">
+<table class="AltRow FirstColumn" cellspacing="0">
+<tr class="heading">
+<th align="left" valign="top">
+<b>
+#
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+名称
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+数据类型
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+描述
+</b>
+
+</th>
+
+</tr>
+<tr class="even">
+<td align="right" valign="top">
+1
+</td>
+<td align="left" valign="top">
+rt_errorStatus
+</td>
+<td align="left" valign="top">
+const char_T&nbsp;**
+</td>
+<td align="left" valign="top">
+rt_errorStatus
+</td>
+
+</tr>
+<tr class="odd">
+<td align="right" valign="top">
+2
+</td>
+<td align="left" valign="top">
+fp14zyuwlg_prot
+</td>
+<td align="left" valign="top">
+i10oedhb1z_prot&nbsp;*const
+</td>
+<td align="left" valign="top">
+RTModel
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+返回值
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+头文件
+</td>
+<td width="75%" align="left" valign="top">
+<a href="SVPWM_h.html">SVPWM.h</a>
+</td>
+
+</tr>
+
+</table>
+<p>
+函数: <a href="SVPWM_c.html#fcn_SVPWM">SVPWM</a>
+</p>
+<table width="100%" class="AltRow" cellspacing="0">
+<tr class="even">
+<td width="25%" align="left" valign="top">
+原型
+</td>
+<td width="75%" align="left" valign="top">
+<b>
+void SVPWM(const boolean_T&nbsp;*dhgvp1s5vg_prot, const real32_T&nbsp;*jhpssbao2p_prot, const real32_T&nbsp;*fqb2ggdc3a_prot, const uint16_T&nbsp;*h02v2jwzw3_prot, const uint16_T&nbsp;*mda52bhutz_prot, Duty&nbsp;*mnr0dzkazo_prot, real32_T&nbsp;*bnsvj5idlz_prot, real32_T&nbsp;*cgldeb23l4_prot, real32_T&nbsp;*bqycvnd5k0_prot, naznc13ph2_prot&nbsp;*localDW)
+</b>
+
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+描述
+</td>
+<td width="75%" align="left" valign="top">
+生成代码的输出入口函数
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+定时
+</td>
+<td width="75%" align="left" valign="top">
+必须周期性调用，每 0.0001 秒调用一次
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+参数
+</td>
+<td width="75%" align="left" valign="top">
+<span title="点击以收缩或展开表" onclick="rtwTableShrink(this)">[-]</span><table class="AltRow FirstColumn" cellspacing="0">
+<tr class="heading">
+<th align="left" valign="top">
+<b>
+#
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+名称
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+数据类型
+</b>
+
+</th>
+<th align="left" valign="top">
+<b>
+描述
+</b>
+
+</th>
+
+</tr>
+<tr class="even">
+<td align="right" valign="top">
+1
+</td>
+<td align="left" valign="top">
+dhgvp1s5vg_prot
+</td>
+<td align="left" valign="top">
+const boolean_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/Enable
+</td>
+
+</tr>
+<tr class="odd">
+<td align="right" valign="top">
+2
+</td>
+<td align="left" valign="top">
+jhpssbao2p_prot
+</td>
+<td align="left" valign="top">
+const real32_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/Ud
+</td>
+
+</tr>
+<tr class="even">
+<td align="right" valign="top">
+3
+</td>
+<td align="left" valign="top">
+fqb2ggdc3a_prot
+</td>
+<td align="left" valign="top">
+const real32_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/Uq
+</td>
+
+</tr>
+<tr class="odd">
+<td align="right" valign="top">
+4
+</td>
+<td align="left" valign="top">
+h02v2jwzw3_prot
+</td>
+<td align="left" valign="top">
+const uint16_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/Angle
+</td>
+
+</tr>
+<tr class="even">
+<td align="right" valign="top">
+5
+</td>
+<td align="left" valign="top">
+mda52bhutz_prot
+</td>
+<td align="left" valign="top">
+const uint16_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/PhaseSeq
+</td>
+
+</tr>
+<tr class="odd">
+<td align="right" valign="top">
+6
+</td>
+<td align="left" valign="top">
+mnr0dzkazo_prot
+</td>
+<td align="left" valign="top">
+Duty&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/f32_Duty
+</td>
+
+</tr>
+<tr class="even">
+<td align="right" valign="top">
+7
+</td>
+<td align="left" valign="top">
+bnsvj5idlz_prot
+</td>
+<td align="left" valign="top">
+real32_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/CpmrU
+</td>
+
+</tr>
+<tr class="odd">
+<td align="right" valign="top">
+8
+</td>
+<td align="left" valign="top">
+cgldeb23l4_prot
+</td>
+<td align="left" valign="top">
+real32_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/CmprV
+</td>
+
+</tr>
+<tr class="even">
+<td align="right" valign="top">
+9
+</td>
+<td align="left" valign="top">
+bqycvnd5k0_prot
+</td>
+<td align="left" valign="top">
+real32_T&nbsp;*
+</td>
+<td align="left" valign="top">
+&lt;Root&gt;/CmprW
+</td>
+
+</tr>
+<tr class="odd">
+<td align="right" valign="top">
+10
+</td>
+<td align="left" valign="top">
+localDW
+</td>
+<td align="left" valign="top">
+naznc13ph2_prot&nbsp;*
+</td>
+<td align="left" valign="top">
+localDW
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr class="even">
+<td width="25%" align="left" valign="top">
+返回值
+</td>
+<td width="75%" align="left" valign="top">
+None
+</td>
+
+</tr>
+<tr class="odd">
+<td width="25%" align="left" valign="top">
+头文件
+</td>
+<td width="75%" align="left" valign="top">
+<a href="SVPWM_h.html">SVPWM.h</a>
+</td>
+
+</tr>
+
+</table>
+<h3>
+<a name="sec_输入端口">
+输入端口
+</a>
+
+</h3>
+<span title="点击以收缩或展开表" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0">
+<tr class="heading">
+<th width="57%" align="left" valign="top">
+<b>
+模块名称
+</b>
+
+</th>
+<th width="28%" align="left" valign="top">
+<b>
+数据类型
+</b>
+
+</th>
+<th width="14%" align="right" valign="top">
+<b>
+维度
+</b>
+
+</th>
+
+</tr>
+<tr class="even">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/Enable
+</td>
+<td width="28%" align="left" valign="top">
+boolean_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/Ud
+</td>
+<td width="28%" align="left" valign="top">
+real32_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/Uq
+</td>
+<td width="28%" align="left" valign="top">
+real32_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/Angle
+</td>
+<td width="28%" align="left" valign="top">
+uint16_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/PhaseSeq
+</td>
+<td width="28%" align="left" valign="top">
+uint16_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+
+</table>
+<h3>
+<a name="sec_输出端口">
+输出端口
+</a>
+
+</h3>
+<span title="点击以收缩或展开表" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0">
+<tr class="heading">
+<th width="57%" align="left" valign="top">
+<b>
+模块名称
+</b>
+
+</th>
+<th width="28%" align="left" valign="top">
+<b>
+数据类型
+</b>
+
+</th>
+<th width="14%" align="right" valign="top">
+<b>
+维度
+</b>
+
+</th>
+
+</tr>
+<tr class="even">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/f32_Duty
+</td>
+<td width="28%" align="left" valign="top">
+Duty
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/CpmrU
+</td>
+<td width="28%" align="left" valign="top">
+real32_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="even">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/CmprV
+</td>
+<td width="28%" align="left" valign="top">
+real32_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+<tr class="odd">
+<td width="57%" align="left" valign="top">
+&lt;Root&gt;/CmprW
+</td>
+<td width="28%" align="left" valign="top">
+real32_T
+</td>
+<td width="14%" align="right" valign="top">
+1
+</td>
+
+</tr>
+
+</table>
+<h3>
+<a name="sec_接口参数">
+接口参数
+</a>
+
+</h3>
+<p>
+模型中没有接口/可调参数。
+</p>
+<h3>
+<a name="sec_数据存储">
+数据存储
+</a>
+
+</h3>
+<p>
+模型中没有数据存储；请注意，此报告仅列出具有非自动存储类和全局数据存储的数据存储
+</p>
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+    NodeName         Node          Txd          Rxd
+        CALI            0        P14.0        P14.1
+        COMM            1        P32.3        P32.2
+        RES1            2        P15.0        P15.1
+        RES2                                       
+
+
+Remark:
+1) Only one MultiCAN supported, which is default as _0
+2) The NodeName will be renameed as COMM_CAN_0 in the script for example
+3) Donot change the NodeName
+4) The script will read the fixed line2~5
+5) port shall be presented as Pxx, e.g. P02.1 P02.15

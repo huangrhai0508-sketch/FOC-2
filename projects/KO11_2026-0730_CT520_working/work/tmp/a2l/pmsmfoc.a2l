@@ -1,0 +1,3449 @@
+/******************************************************************************
+ *
+ *  ASAP2 file:     pmsmfoc.a2l
+ *
+ * 
+ *
+ * Code generation for model "pmsmfoc".
+ *
+ * Model version              : 11.145
+ * Simulink Coder version : 10.6 R2022b
+ * C source code generated on : Tue Jul 28 23:07:01 2026
+ *
+ * Target selection: ert.tlc
+ * Embedded hardware selection: Infineon->TriCore
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
+ *
+ * (add additional file header information here)
+ *
+ ******************************************************************************/
+ASAP2_VERSION  1 31     /* Version 1.31 */
+
+/begin PROJECT ProjectName "Project Comment Goes Here"
+
+  /begin HEADER "Header Comments go here"
+  /end HEADER
+
+  /begin MODULE ModuleName  "Module Comment Goes Here"
+
+    /begin MOD_PAR "MOD PAR Comment Goes Here"
+    /end MOD_PAR
+
+    /begin MOD_COMMON  "Mod Common Comment Here"
+      BYTE_ORDER     MSB_LAST
+
+      ALIGNMENT_BYTE 1
+      ALIGNMENT_WORD 2
+      ALIGNMENT_LONG 4
+      ALIGNMENT_FLOAT32_IEEE 4
+      ALIGNMENT_FLOAT64_IEEE 4
+    /end MOD_COMMON
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      ExFeedBack_T
+    /* Long Identifier        */      "flux weakening control -exfeedback current"
+    /* Characteristic Type    */      MAP
+    /* ECU Address            */      0x0000 /* @ECU_Address@ExFeedBack_T@ */
+    /* Record Layout          */      ExFeedBackST
+    /* Maxdiff                */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      -400.000000
+    /* Upper Limit            */      0.000000
+    /begin AXIS_DESCR
+      /* Description of X-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      PMC_PsiMax
+      /* Conversion Method    */      FOC_CM_single_Nm
+      /* Number of Axis Pts   */      10
+      /* Lower Limit          */      0.000000
+      /* Upper Limit          */      500.000000
+    /end AXIS_DESCR
+    /begin AXIS_DESCR
+      /* Description of Y-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      NO_INPUT_QUANTITY
+      /* Conversion Method    */      FOC_CM_single_NA
+      /* Number of Axis Pts   */      21
+      /* Lower Limit          */      0.000000
+      /* Upper Limit          */      17.500000
+    /end AXIS_DESCR
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      FFW_enable
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@FFW_enable@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      IdROL_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@IdROL_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      50.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      MTPA_T
+    /* Long Identifier        */      "MTPA curve with torque and rotor temperature"
+    /* Characteristic Type    */      MAP
+    /* ECU Address            */      0x0000 /* @ECU_Address@MTPA_T@ */
+    /* Record Layout          */      MTPAST
+    /* Maxdiff                */      0
+    /* Conversion Method      */      FOC_CM_single_A
+    /* Lower Limit            */      -450.000000
+    /* Upper Limit            */      0.000000
+    /begin AXIS_DESCR
+      /* Description of X-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      FOCpmsmfoc_rtDWork.Model2_o1
+      /* Conversion Method    */      FOC_CM_single_degC
+      /* Number of Axis Pts   */      5
+      /* Lower Limit          */      -40.000000
+      /* Upper Limit          */      200.000000
+    /end AXIS_DESCR
+    /begin AXIS_DESCR
+      /* Description of Y-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      NO_INPUT_QUANTITY
+      /* Conversion Method    */      FOC_CM_single_Nm
+      /* Number of Axis Pts   */      21
+      /* Lower Limit          */      0.000000
+      /* Upper Limit          */      400.000000
+    /end AXIS_DESCR
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      PWMFrqSwitch_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@PWMFrqSwitch_C@ */
+    /* Record Layout          */      Record_BOOLEAN
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_logical_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      SC_Ld_P
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@SC_Ld_P@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_H
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      0.050000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      SC_Lq_P
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@SC_Lq_P@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_H
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      0.050000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      SC_Psi_P
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@SC_Psi_P@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      SC_pRsv_P
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@SC_pRsv_P@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      32.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      SC_p_P
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@SC_p_P@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      32.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      agNegTrans_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@agNegTrans_C@ */
+    /* Record Layout          */      Record_SWORD
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_int16_NA
+    /* Lower Limit            */      -1.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      cLdAdptMon_T
+    /* Long Identifier        */      "Lqwith id and iq"
+    /* Characteristic Type    */      MAP
+    /* ECU Address            */      0x0000 /* @ECU_Address@cLdAdptMon_T@ */
+    /* Record Layout          */      cLdAdptMonST
+    /* Maxdiff                */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.100000
+    /begin AXIS_DESCR
+      /* Description of X-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      NO_INPUT_QUANTITY
+      /* Conversion Method    */      FOC_CM_single_A
+      /* Number of Axis Pts   */      25
+      /* Lower Limit          */      -550.000000
+      /* Upper Limit          */      550.000000
+    /end AXIS_DESCR
+    /begin AXIS_DESCR
+      /* Description of Y-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      ISP_iQaFild
+      /* Conversion Method    */      FOC_CM_single_A
+      /* Number of Axis Pts   */      61
+      /* Lower Limit          */      -550.000000
+      /* Upper Limit          */      550.000000
+    /end AXIS_DESCR
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      cLqAdptMon_T
+    /* Long Identifier        */      "Lqwith id and iq"
+    /* Characteristic Type    */      MAP
+    /* ECU Address            */      0x0000 /* @ECU_Address@cLqAdptMon_T@ */
+    /* Record Layout          */      cLqAdptMonST
+    /* Maxdiff                */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.100000
+    /begin AXIS_DESCR
+      /* Description of X-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      NO_INPUT_QUANTITY
+      /* Conversion Method    */      FOC_CM_single_A
+      /* Number of Axis Pts   */      25
+      /* Lower Limit          */      -550.000000
+      /* Upper Limit          */      550.000000
+    /end AXIS_DESCR
+    /begin AXIS_DESCR
+      /* Description of Y-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      ISP_iQaFild
+      /* Conversion Method    */      FOC_CM_single_A
+      /* Number of Axis Pts   */      61
+      /* Lower Limit          */      -550.000000
+      /* Upper Limit          */      550.000000
+    /end AXIS_DESCR
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      cPsiIsqAdptMot_TT
+    /* Long Identifier        */      "flux with Iq"
+    /* Characteristic Type    */      CURVE
+    /* ECU Address            */      0x0000 /* @ECU_Address@cPsiIsqAdptMot_TT@ */
+    /* Record Layout          */      cPsiIsqAdptMotSTT
+    /* Maxdiff                */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.100000
+    /begin AXIS_DESCR
+      /* Description of X-Axis Points */
+      /* Axis Type            */      STD_AXIS
+      /* Reference to Input   */      ISP_iQaFild
+      /* Conversion Method    */      FOC_CM_single_A
+      /* Number of Axis Pts   */      121
+      /* Lower Limit          */      -550.000000
+      /* Upper Limit          */      550.000000
+    /end AXIS_DESCR
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      f32_P_AngleCompCur
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@f32_P_AngleCompCur@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      -5.000000
+    /* Upper Limit            */      5.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      f32_P_AngleCompVol
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@f32_P_AngleCompVol@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      -5.000000
+    /* Upper Limit            */      5.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      f32_P_Coef
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@f32_P_Coef@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      0.500000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      f32_P_Modulation
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@f32_P_Modulation@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.100000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      f32_SpeedFltCoef
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@f32_SpeedFltCoef@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      4000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      facAdc2iPh_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@facAdc2iPh_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -0.600000
+    /* Upper Limit            */      0.600000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      facAdc2uDclnk_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@facAdc2uDclnk_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      0.990000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AcrKi
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AcrKi@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      4000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AcrKiStb
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AcrKiStb@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      4000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AcrKp
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AcrKp@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AcrKpStb
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AcrKpStb@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AcrSwtHiRpm
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AcrSwtHiRpm@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      6000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AcrSwtLoRpm
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AcrSwtLoRpm@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      6000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AfrKp
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AfrKp@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      30.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_AfrTi
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_AfrTi@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_CalibEn
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_CalibEn@ */
+    /* Record Layout          */      Record_BOOLEAN
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_logical_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_DecoupleEn
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_DecoupleEn@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_FFW_Gain
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_FFW_Gain@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_L1
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_L1@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_L2
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_L2@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_MTPA_Gain
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_MTPA_Gain@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_N111
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_N111@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_N222
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_N222@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_arc_dd_fi
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_arc_dd_fi@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_clpwitch
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_clpwitch@ */
+    /* Record Layout          */      Record_BOOLEAN
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_logical_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_depth
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_depth@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_detlaAngle_single
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_detlaAngle_single@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_dqLpf
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_dqLpf@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_dqLpfSpdCoef
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_dqLpfSpdCoef@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_fbw
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_fbw@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_linearKpEn
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_linearKpEn@ */
+    /* Record Layout          */      Record_BOOLEAN
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_logical_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_maxCur
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_maxCur@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_maxFwcCurRatio
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_maxFwcCurRatio@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      100.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_motorseq
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_motorseq@ */
+    /* Record Layout          */      Record_BOOLEAN
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_logical_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_pwmFrqSet
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_pwmFrqSet@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      20000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_spdswitch
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_spdswitch@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      g_msgCore0to2_wb
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@g_msgCore0to2_wb@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_NA
+    /* Lower Limit            */      -40000.000000
+    /* Upper Limit            */      40000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      iPhaMax_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@iPhaMax_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_A
+    /* Lower Limit            */      -1000.000000
+    /* Upper Limit            */      1000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      iPhaMin_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@iPhaMin_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_A
+    /* Lower Limit            */      -1000.000000
+    /* Upper Limit            */      1000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      offsAgRtrElec_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@offsAgRtrElec_C@ */
+    /* Record Layout          */      Record_SWORD
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_int16_NA
+    /* Lower Limit            */      -32768.000000
+    /* Upper Limit            */      32767.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      rotatedirection_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@rotatedirection_C@ */
+    /* Record Layout          */      Record_UWORD
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_uint16_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      tauUdcPT1_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@tauUdcPT1_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_s
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      u16_P_MotorPair
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@u16_P_MotorPair@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      FOC_CM_single_NA
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      8.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      uDcMax_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@uDcMax_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_V
+    /* Lower Limit            */      0.000000
+    /* Upper Limit            */      1000.000000
+  /end CHARACTERISTIC 
+
+  /begin CHARACTERISTIC 
+    /* Name                   */      uDcMin_C
+    /* Long Identifier        */      ""
+    /* Type                   */      VALUE
+    /* ECU Address            */      0x0000 /* @ECU_Address@uDcMin_C@ */
+    /* Record Layout          */      Record_FLOAT32_IEEE
+    /* Maximum Difference     */      0
+    /* Conversion Method      */      CDD_ISP_CM_single_V
+    /* Lower Limit            */      -1.000000
+    /* Upper Limit            */      1000.000000
+  /end CHARACTERISTIC 
+
+  /begin MEASUREMENT 
+    /* Name                   */      B
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@B@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      FOC_AcrKpCalOpt
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@FOC_AcrKpCalOpt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      FOC_CurKp
+    /* Long identifier        */      "curkp"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@FOC_CurKp@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_agRoughCal
+    /* Long identifier        */      "Rough Calibrated output offset rotor angle"
+    /* Data type              */      SWORD
+    /* Conversion method      */      CDD_ISP_CM_int16_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -32768.000000
+    /* Upper limit            */      32767.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_agRoughCal@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_agRtrElec
+    /* Long identifier        */      "Electric angle of rotor"
+    /* Data type              */      SWORD
+    /* Conversion method      */      CDD_ISP_CM_int16_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -32768.000000
+    /* Upper limit            */      32767.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_agRtrElec@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_agRtrElecAtan2
+    /* Long identifier        */      "Electric angle of rotor calculated by atan2"
+    /* Data type              */      SWORD
+    /* Conversion method      */      CDD_ISP_CM_int16_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -32768.000000
+    /* Upper limit            */      32767.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_agRtrElecAtan2@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_agRtrPoleTrans
+    /* Long identifier        */      "Resolver electric angle transit to motor electric angle"
+    /* Data type              */      SWORD
+    /* Conversion method      */      CDD_ISP_CM_int16_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -32768.000000
+    /* Upper limit            */      32767.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_agRtrPoleTrans@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_frqElec
+    /* Long identifier        */      "Electric frequency of rotor"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_Hz
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -2000.000000
+    /* Upper limit            */      2000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_frqElec@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_frqElecCaln
+    /* Long identifier        */      "Electric frequency of rotor by atan2 calculate"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_Hz
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -2000.000000
+    /* Upper limit            */      2000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_frqElecCaln@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_iDaFild
+    /* Long identifier        */      "d-axis filtered current,A"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_iDaFild@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_iDcFlt
+    /* Long identifier        */      "Calculated Dc link current"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_iDcFlt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_iPhaU
+    /* Long identifier        */      "U phase current, A"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_iPhaU@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_iPhaV
+    /* Long identifier        */      "V phase current, A"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_iPhaV@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_iPhaW
+    /* Long identifier        */      "W phase current, A"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_iPhaW@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_iQaFild
+    /* Long identifier        */      "q-axis filtered current,A"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_iQaFild@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_lossTotalIGBT
+    /* Long identifier        */      "Loss of IGBT"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_W
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      0.000000
+    /* Upper limit            */      5000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_lossTotalIGBT@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_n
+    /* Long identifier        */      "mechanical speed"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_rpm
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -20000.000000
+    /* Upper limit            */      20000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_n@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_n_test_notch
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_n_test_notch@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_n_test_pp
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_n_test_pp@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_speedref_final
+    /* Long identifier        */      ""
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      pmsmfoc_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_speedref_final@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_speedref_final_wn
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_speedref_final_wn@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_tmpClnt
+    /* Long identifier        */      "Coolant temperature"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_degC
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -50.000000
+    /* Upper limit            */      200.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_tmpClnt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_tmpMaxIGBT
+    /* Long identifier        */      "Tj of IGBT"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_degC
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -50.000000
+    /* Upper limit            */      200.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_tmpMaxIGBT@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_uDcFlt
+    /* Long identifier        */      "Filtered DC link voltage"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_V
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      0.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_uDcFlt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ISP_wElec
+    /* Long identifier        */      "Electric frequency of rotor"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_rad_per_s
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -12566.000000
+    /* Upper limit            */      12566.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ISP_wElec@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_FFW_opt
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_FFW_opt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_FWC_opt
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_FWC_opt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_IsMax
+    /* Long identifier        */      "Caculated maximum phase current at current frequency"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_IsMax@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_IsdDes
+    /* Long identifier        */      "d-axis target current"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_IsdDes@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_IsqDes
+    /* Long identifier        */      "q-axis target current"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_IsqDes@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_Ld
+    /* Long identifier        */      "d-axis inductance"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_H
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -0.002000
+    /* Upper limit            */      0.002000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_Ld@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_LpfOpt
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_LpfOpt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_LpfSpdAct
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_LpfSpdAct@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_Lq
+    /* Long identifier        */      "q-axis inductance"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_H
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -0.002000
+    /* Upper limit            */      0.002000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_Lq@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_LqSubLd
+    /* Long identifier        */      "q-axis sub d-axis inductance"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_H
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -0.002000
+    /* Upper limit            */      0.002000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_LqSubLd@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_MTPA_opt
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_MTPA_opt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_PsiExc
+    /* Long identifier        */      "flux"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_wb
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -0.100000
+    /* Upper limit            */      0.100000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_PsiExc@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_PsiMax
+    /* Long identifier        */      "Calculated maximum flux for flux weakening control"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_wb
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      0.000000
+    /* Upper limit            */      0.200000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_PsiMax@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_TrqOutEst
+    /* Long identifier        */      "Estimated output torque"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_Nm
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -512.000000
+    /* Upper limit            */      512.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_TrqOutEst@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0001
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_UsMax
+    /* Long identifier        */      "SVPWM maximum phase voltage"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      pmsmfoc_CM_single_V
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      0.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_UsMax@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_UsdFlt
+    /* Long identifier        */      "d axis output Nrm voltage"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_V
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1.100000
+    /* Upper limit            */      1.100000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_UsdFlt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_UsdScal
+    /* Long identifier        */      "d axis output Nrm voltage"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1.100000
+    /* Upper limit            */      1.100000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_UsdScal@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_UsqFlt
+    /* Long identifier        */      "q axis output Nrm voltage"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_V
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1.100000
+    /* Upper limit            */      1.100000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_UsqFlt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_UsqScal
+    /* Long identifier        */      "q axis output Nrm voltage"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1.100000
+    /* Upper limit            */      1.100000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_UsqScal@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_flgReqSafeSt
+    /* Long identifier        */      "Safe state flag"
+    /* Data type              */      UBYTE
+    /* Conversion method      */      pmsmfoc_CM_boolean_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      0.000000
+    /* Upper limit            */      1.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_flgReqSafeSt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_isdFlt
+    /* Long identifier        */      ""
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_isdFlt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_isqFlt
+    /* Long identifier        */      ""
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_A
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -1000.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_isqFlt@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_pwmfrq
+    /* Long identifier        */      "cmprW"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_pwmfrq@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_stGateDrv
+    /* Long identifier        */      "gate drive mode from the statemachine"
+    /* Data type              */      SLONG
+    /* Conversion method      */      pmsmfoc_CM_EGM_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      0
+    /* Upper limit            */      4
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_stGateDrv@ */
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      PMC_tiPerd
+    /* Long identifier        */      "Period time output from MCT considering variable freuqency and random frequency"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      pmsmfoc_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      0.000000
+    /* Upper limit            */      1000.000000
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@PMC_tiPerd@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ToSee_idAnti_windup
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ToSee_idAnti_windup@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      ToSee_iqAnti_windup
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@ToSee_iqAnti_windup@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      Trqdes_P1
+    /* Long identifier        */      ""
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      pmsmfoc_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@Trqdes_P1@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      Uq_output_limit
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@Uq_output_limit@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      X111
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@X111@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      X222
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@X222@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      Y111
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@Y111@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      Y222
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@Y222@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      a1
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@a1@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      a2
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@a2@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      a3
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@a3@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      b1
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@b1@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      b2
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@b2@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      b3
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@b3@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      cmprU
+    /* Long identifier        */      "cmprU"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@cmprU@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      cmprV
+    /* Long identifier        */      "cmprV"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@cmprV@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      cmprW
+    /* Long identifier        */      "cmprW"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@cmprW@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      d_decouple
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@d_decouple@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      d_integral
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@d_integral@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      k1
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@k1@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      k2
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@k2@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      omega_hat_K_1
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@omega_hat_K_1@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      q_decouple_Add_ffw
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@q_decouple_Add_ffw@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      q_integral
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@q_integral@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      q_volt_lower
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@q_volt_lower@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      q_volt_upper
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@q_volt_upper@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      temp1_111
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@temp1_111@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      temp2_222
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@temp2_222@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      test2
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@test2@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      test8
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@test8@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      theta_hat_K_1
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      CDD_ISP_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@theta_hat_K_1@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      usage
+    /* Long identifier        */      "cmprW"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@usage@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      usd_output
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@usd_output@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin MEASUREMENT 
+    /* Name                   */      usq_output
+    /* Long identifier        */      "TODO"
+    /* Data type              */      FLOAT32_IEEE
+    /* Conversion method      */      FOC_CM_single_NA
+    /* Resolution (Not used)  */      0      
+    /* Accuracy (Not used)    */      0      
+    /* Lower limit            */      -3.4E+38
+    /* Upper limit            */      3.4E+38
+    ECU_ADDRESS                       0x0000 /* @ECU_Address@usq_output@ */
+    /begin IF_DATA XCP
+      /begin DAQ_EVENT VARIABLE
+          /begin DEFAULT_EVENT_LIST
+            EVENT  0x0000
+          /end DEFAULT_EVENT_LIST
+      /end DAQ_EVENT
+    /end IF_DATA
+  /end MEASUREMENT 
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_int16_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%5.0"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_A
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "A"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_Hz
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "Hz"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_V
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "V"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_W
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "W"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_degC
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "degC"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_rad_per_s
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "rad/s"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_rpm
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "rpm"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_single_s
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "s"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      CDD_ISP_CM_uint16_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%5.0"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_logical_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%1.0"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      ""
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single_A
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "A"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single_H
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "H"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single_Nm
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "Nm"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single_V
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "V"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single_degC
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "degC"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      FOC_CM_single_wb
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "wb"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_EGM_NA
+    /* Long identifier        */      "Enumerated data type: EGM"
+    /* Conversion Type        */      TAB_VERB
+    /* Format                 */      "%0.6"
+    /* Units                  */      "NA"
+    /* Conversion Table       */      COMPU_TAB_REF VTAB_FOR_pmsmfoc_CM_EGM_NA
+  /end COMPU_METHOD
+
+  /begin COMPU_VTAB
+    /* Name of Table          */      VTAB_FOR_pmsmfoc_CM_EGM_NA
+    /* Long identifier        */      "Enumerated data type: EGM"
+    /* Conversion Type        */      TAB_VERB
+    /* Number of Elements     */      5
+    /* Table Element          */      0 "Freewheel"
+    /* Table Element          */      1 "Shortcircuit"
+    /* Table Element          */      2 "ShortcircuitTop"
+    /* Table Element          */      3 "PWMRun"
+    /* Table Element          */      4 "PWMDischarge"
+  /end COMPU_VTAB
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_boolean_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%1.0"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_int16_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%5.0"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_single_A
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "A"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_single_NA
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "NA"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_single_Nm
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "Nm"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_single_V
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "V"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin COMPU_METHOD
+    /* Name of CompuMethod    */      pmsmfoc_CM_single_rpm
+    /* Long identifier        */      "Q = V"
+    /* Conversion Type        */      RAT_FUNC
+    /* Format                 */      "%8.6"
+    /* Units                  */      "rpm"
+    /* Coefficients           */      COEFFS 0 1 0 0 0 1
+  /end COMPU_METHOD
+
+  /begin  RECORD_LAYOUT Record_BOOLEAN
+    FNC_VALUES 1 UBYTE COLUMN_DIR DIRECT
+  /end  RECORD_LAYOUT 
+
+  /begin  RECORD_LAYOUT Record_FLOAT32_IEEE
+    FNC_VALUES 1 FLOAT32_IEEE COLUMN_DIR DIRECT
+  /end  RECORD_LAYOUT 
+
+  /begin  RECORD_LAYOUT Record_SLONG
+    FNC_VALUES 1 SLONG COLUMN_DIR DIRECT
+  /end  RECORD_LAYOUT 
+
+  /begin  RECORD_LAYOUT Record_SWORD
+    FNC_VALUES 1 SWORD COLUMN_DIR DIRECT
+  /end  RECORD_LAYOUT 
+
+  /begin  RECORD_LAYOUT Record_UWORD
+    FNC_VALUES 1 UWORD COLUMN_DIR DIRECT
+  /end  RECORD_LAYOUT 
+
+  /* Record Layouts for Lookup Tables in Standard Axis format */
+
+  /begin RECORD_LAYOUT ExFeedBackST
+    AXIS_PTS_X 2 FLOAT32_IEEE INDEX_INCR DIRECT
+    AXIS_PTS_Y 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    FNC_VALUES 3 FLOAT32_IEEE COLUMN_DIR DIRECT
+  /end RECORD_LAYOUT 
+
+  /begin RECORD_LAYOUT MTPAST
+    AXIS_PTS_X 2 FLOAT32_IEEE INDEX_INCR DIRECT
+    AXIS_PTS_Y 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    FNC_VALUES 3 FLOAT32_IEEE COLUMN_DIR DIRECT
+  /end RECORD_LAYOUT 
+
+  /begin RECORD_LAYOUT cLdAdptMonST
+    AXIS_PTS_X 2 FLOAT32_IEEE INDEX_INCR DIRECT
+    AXIS_PTS_Y 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    FNC_VALUES 3 FLOAT32_IEEE COLUMN_DIR DIRECT
+  /end RECORD_LAYOUT 
+
+  /begin RECORD_LAYOUT cLqAdptMonST
+    AXIS_PTS_X 2 FLOAT32_IEEE INDEX_INCR DIRECT
+    AXIS_PTS_Y 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    FNC_VALUES 3 FLOAT32_IEEE COLUMN_DIR DIRECT
+  /end RECORD_LAYOUT 
+
+  /begin RECORD_LAYOUT cPsiIsqAdptMotSTT
+    AXIS_PTS_X 1 FLOAT32_IEEE INDEX_INCR DIRECT
+    FNC_VALUES 2 FLOAT32_IEEE COLUMN_DIR DIRECT
+  /end RECORD_LAYOUT 
+
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc
+    /* Long identifier        */      "pmsmfoc"
+    /* Root                   */      ROOT
+    /begin SUB_GROUP
+      pmsmfoc_CoreMsgIf
+      pmsmfoc_PMC_SVM
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      IdROL_C
+      SC_pRsv_P
+      SC_p_P
+      agNegTrans_C
+      f32_SpeedFltCoef
+      facAdc2iPh_C
+      facAdc2uDclnk_C
+      g_msgCore0to2_L1
+      g_msgCore0to2_L2
+      g_msgCore0to2_N111
+      g_msgCore0to2_N222
+      g_msgCore0to2_depth
+      g_msgCore0to2_detlaAngle_single
+      g_msgCore0to2_fbw
+      g_msgCore0to2_wb
+      iPhaMax_C
+      iPhaMin_C
+      offsAgRtrElec_C
+      rotatedirection_C
+      tauUdcPT1_C
+      uDcMax_C
+      uDcMin_C
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      ISP_agRtrElecAtan2
+      ISP_n
+      ISP_speedref_final
+      Trqdes_P1
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model
+    /* Long identifier        */      "pmsmfoc/PMC&SVM/Model"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc
+    /end SUB_GROUP
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc
+    /* Long identifier        */      "FOC/bldc"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_AngleComp
+      pmsmfoc_293_FOC_Model_bldc_FwcFdbCalc
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc
+      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1
+      pmsmfoc_293_FOC_Model_bldc_PT1
+      pmsmfoc_293_FOC_Model_bldc_PT2
+      pmsmfoc_293_FOC_Model_bldc_PT3
+      pmsmfoc_293_FOC_Model_bldc_PWMfreq
+      pmsmfoc_293_FOC_Model_bldc_Subsystem
+      pmsmfoc_293_FOC_Model_bldc_Subsystem1
+      pmsmfoc_293_FOC_Model_bldc_Subsystem3
+      pmsmfoc_293_FOC_Model_bldc_Subsystem4
+      pmsmfoc_293_FOC_Model_bldc_abc2dq
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      FFW_enable
+      f32_P_Coef
+      f32_P_Modulation
+      g_msgCore0to2_DecoupleEn
+      g_msgCore0to2_arc_dd_fi
+      g_msgCore0to2_clpwitch
+      g_msgCore0to2_dqLpf
+      g_msgCore0to2_dqLpfSpdCoef
+      g_msgCore0to2_motorseq
+      g_msgCore0to2_spdswitch
+      u16_P_MotorPair
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_IsdDes
+      PMC_IsqDes
+      PMC_Ld
+      PMC_LpfOpt
+      PMC_LpfSpdAct
+      PMC_Lq
+      PMC_PsiExc
+      PMC_UsdScal
+      PMC_UsqScal
+      PMC_isdFlt
+      PMC_isqFlt
+      ToSee_idAnti_windup
+      ToSee_iqAnti_windup
+      Uq_output_limit
+      d_decouple
+      d_integral
+      q_decouple_Add_ffw
+      q_integral
+      q_volt_lower
+      q_volt_upper
+      usd_output
+      usq_output
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_AngleComp
+    /* Long identifier        */      "FOC/bldc/AngleComp"
+    /begin REF_CHARACTERISTIC
+      f32_P_AngleCompCur
+      f32_P_AngleCompVol
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_pwmfrq
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_FwcFdbCalc
+    /* Long identifier        */      "FOC/bldc/FwcFdbCalc"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_FwcFdbCalc_PT1_1
+    /end SUB_GROUP
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_FwcFdbCalc_PT1_1
+    /* Long identifier        */      "FOC/bldc/FwcFdbCalc/PT1_1"
+    /begin REF_MEASUREMENT
+      usage
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_FWC
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_MaxI_vs_Freq
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsdDesCalc
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      f32_P_Modulation
+      u16_P_MotorPair
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_IsqDes
+      Trqdes_P1
+      o_o_o_f32_Duty_f32_DutyWon
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_FWC
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/FWC"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_FWC_PI
+    /end SUB_GROUP
+    /begin REF_MEASUREMENT
+      PMC_FWC_opt
+      PMC_MTPA_opt
+      usage
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_FWC_PI
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/FWC/PI"
+    /begin REF_CHARACTERISTIC
+      g_msgCore0to2_AfrKp
+      g_msgCore0to2_AfrTi
+      g_msgCore0to2_maxCur
+    /end REF_CHARACTERISTIC
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_MaxI_vs_Freq
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/MaxI vs Freq"
+    /begin REF_CHARACTERISTIC
+      g_msgCore0to2_maxCur
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_IsMax
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsdDesCalc
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/PMC_IsdDesCalc"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsdDesCalc_iDaDesTblLimd
+    /end SUB_GROUP
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsdDesCalc_iDaDesTblLimd
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/PMC_IsdDesCalc/iDaDesTblLimd"
+    /begin REF_CHARACTERISTIC
+      ExFeedBack_T
+      MTPA_T
+      g_msgCore0to2_CalibEn
+      g_msgCore0to2_FFW_Gain
+      g_msgCore0to2_MTPA_Gain
+      g_msgCore0to2_maxCur
+      g_msgCore0to2_maxFwcCurRatio
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_FFW_opt
+      PMC_MTPA_opt
+      PMC_PsiMax
+      Trqdes_P1
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/PMC_IsqDesCalc"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqDesLim_Calc
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqTrqDes_Calc
+    /end SUB_GROUP
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqDesLim_Calc
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/PMC_IsqDesCalc/IsqDesLim_Calc"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqDesLim_Calc_SQRT
+    /end SUB_GROUP
+    /begin REF_MEASUREMENT
+      PMC_IsMax
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqDesLim_Calc_SQRT
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/PMC_IsqDesCalc/IsqDesLim_Calc/SQRT"
+    /begin REF_MEASUREMENT
+      o_o_o_f32_Duty_f32_DutyUon
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqTrqDes_Calc
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/PMC_IsqDesCalc/IsqTrqDes_Calc"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqTrqDes_Calc_MCT_PsmPsiTrqCalc
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      g_msgCore0to2_CalibEn
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      Trqdes_P1
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_IsDesCalc_PMC_IsqDesCalc_IsqTrqDes_Calc_MCT_PsmPsiTrqCalc
+    /* Long identifier        */      "FOC/bldc/PMC_IsDesCalc/PMC_IsqDesCalc/IsqTrqDes_Calc/MCT_PsmPsiTrqCalc"
+    /begin REF_CHARACTERISTIC
+      u16_P_MotorPair
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_LqSubLd
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1
+    /* Long identifier        */      "FOC/bldc/PMC_PsmMdl1"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_GenSigCalcn
+      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_PsmParCalc
+      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_PMC_TrqCal
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      SC_Psi_P
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      ISP_iDaFild
+      ISP_iQaFild
+      PMC_LqSubLd
+      PMC_PsiExc
+      PMC_isdFlt
+      PMC_isqFlt
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_GenSigCalcn
+    /* Long identifier        */      "FOC/bldc/PMC_PsmMdl1/MCT_GenSigCalcn"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_GenSigCalcn_PT1
+      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_GenSigCalcn_PT2
+    /end SUB_GROUP
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_GenSigCalcn_PT1
+    /* Long identifier        */      "FOC/bldc/PMC_PsmMdl1/MCT_GenSigCalcn/PT1"
+    /begin REF_MEASUREMENT
+      ISP_iDaFild
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_GenSigCalcn_PT2
+    /* Long identifier        */      "FOC/bldc/PMC_PsmMdl1/MCT_GenSigCalcn/PT2"
+    /begin REF_MEASUREMENT
+      ISP_iQaFild
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_MCT_PsmParCalc
+    /* Long identifier        */      "FOC/bldc/PMC_PsmMdl1/MCT_PsmParCalc"
+    /begin REF_CHARACTERISTIC
+      SC_Ld_P
+      SC_Lq_P
+      cLdAdptMon_T
+      cLqAdptMon_T
+      cPsiIsqAdptMot_TT
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      ISP_iDaFild
+      ISP_iQaFild
+      PMC_Ld
+      PMC_Lq
+      PMC_LqSubLd
+      PMC_PsiExc
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_PMC_TrqCal
+    /* Long identifier        */      "FOC/bldc/PMC_PsmMdl1/PMC_TrqCal"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_PMC_TrqCal_Saturation_Dynamic1
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      u16_P_MotorPair
+    /end REF_CHARACTERISTIC
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PMC_PsmMdl1_PMC_TrqCal_Saturation_Dynamic1
+    /* Long identifier        */      "FOC/bldc/PMC_PsmMdl1/PMC_TrqCal/Saturation
+Dynamic1"
+    /begin REF_MEASUREMENT
+      PMC_TrqOutEst
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PT1
+    /* Long identifier        */      "FOC/bldc/PT1"
+    /begin REF_MEASUREMENT
+      PMC_LpfOpt
+      PMC_isqFlt
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PT2
+    /* Long identifier        */      "FOC/bldc/PT2"
+    /begin REF_MEASUREMENT
+      PMC_LpfOpt
+      PMC_isdFlt
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PT3
+    /* Long identifier        */      "FOC/bldc/PT3"
+    /begin REF_MEASUREMENT
+      PMC_LpfSpdAct
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_PWMfreq
+    /* Long identifier        */      "FOC/bldc/PWMfreq"
+    /begin REF_CHARACTERISTIC
+      PWMFrqSwitch_C
+      g_msgCore0to2_pwmFrqSet
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_pwmfrq
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_Subsystem
+    /* Long identifier        */      "FOC/bldc/Subsystem"
+    /begin REF_MEASUREMENT
+      o_o_o_f32_Duty_f32_DutyUon
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_Subsystem1
+    /* Long identifier        */      "FOC/bldc/Subsystem1"
+    /begin REF_CHARACTERISTIC
+      g_msgCore0to2_AcrKi
+      g_msgCore0to2_AcrKiStb
+      g_msgCore0to2_AcrKp
+      g_msgCore0to2_AcrKpStb
+      g_msgCore0to2_AcrSwtHiRpm
+      g_msgCore0to2_AcrSwtLoRpm
+      g_msgCore0to2_linearKpEn
+      g_msgCore0to2_maxCur
+      g_msgCore0to2_pwmFrqSet
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      FOC_AcrKpCalOpt
+      FOC_CurKp
+      PMC_LpfSpdAct
+      PMC_pwmfrq
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_Subsystem3
+    /* Long identifier        */      "FOC/bldc/Subsystem3"
+    /begin REF_MEASUREMENT
+      PMC_UsdFlt
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_Subsystem4
+    /* Long identifier        */      "FOC/bldc/Subsystem4"
+    /begin REF_MEASUREMENT
+      PMC_UsqFlt
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_abc2dq
+    /* Long identifier        */      "FOC/bldc/abc2dq"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_abc2dq_Transform
+    /end SUB_GROUP
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_abc2dq_Transform
+    /* Long identifier        */      "FOC/bldc/abc2dq/Transform"
+    /begin SUB_GROUP
+      pmsmfoc_293_FOC_Model_bldc_abc2dq_Transform_Subsystem
+    /end SUB_GROUP
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_293_FOC_Model_bldc_abc2dq_Transform_Subsystem
+    /* Long identifier        */      "FOC/bldc/abc2dq/Transform/Subsystem"
+    /begin REF_CHARACTERISTIC
+      g_msgCore0to2_motorseq
+    /end REF_CHARACTERISTIC
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP
+    /* Long identifier        */      "pmsmfoc/CDD&ISP"
+    /begin SUB_GROUP
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr
+      pmsmfoc_CDD_ISP_CDD_ISP_ISP_ResolverSel
+    /end SUB_GROUP
+    /begin REF_MEASUREMENT
+      ISP_iDcFlt
+      ISP_lossTotalIGBT
+      ISP_tmpClnt
+      ISP_tmpMaxIGBT
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr"
+    /begin SUB_GROUP
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddRslvr_CalnPosCaln
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_ISP_AnaCalnUdcLnk_and_Flt
+    /end SUB_GROUP
+    /begin REF_MEASUREMENT
+      ISP_agRtrElecAtan2
+      ISP_frqElecCaln
+      ISP_uDcFlt
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/CddPhaCur_CalnIpha"
+    /begin SUB_GROUP
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha_Saturation_Dynamic
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha_Saturation_Dynamic1
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha_Saturation_Dynamic2
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      facAdc2iPh_C
+      iPhaMax_C
+      iPhaMin_C
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      ISP_iPhaU
+      ISP_iPhaV
+      ISP_iPhaW
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha_Saturation_Dynamic
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/CddPhaCur_CalnIpha/Saturation
+Dynamic"
+    /begin REF_MEASUREMENT
+      ISP_iPhaU
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha_Saturation_Dynamic1
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/CddPhaCur_CalnIpha/Saturation
+Dynamic1"
+    /begin REF_MEASUREMENT
+      ISP_iPhaV
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddPhaCur_CalnIpha_Saturation_Dynamic2
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/CddPhaCur_CalnIpha/Saturation
+Dynamic2"
+    /begin REF_MEASUREMENT
+      ISP_iPhaW
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddRslvr_CalnPosCaln
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/CddRslvr_CalnPosCaln"
+    /begin SUB_GROUP
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddRslvr_CalnPosCaln_PT1
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      f32_SpeedFltCoef
+      g_msgCore0to2_L1
+      g_msgCore0to2_L2
+      rotatedirection_C
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      ISP_agRtrElecAtan2
+      omega_hat_K_1
+      theta_hat_K_1
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_CddRslvr_CalnPosCaln_PT1
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/CddRslvr_CalnPosCaln/PT1"
+    /begin REF_MEASUREMENT
+      ISP_frqElecCaln
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_ISP_AnaCalnUdcLnk_and_Flt
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/ISP_AnaCalnUdcLnk and Flt"
+    /begin SUB_GROUP
+      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_ISP_AnaCalnUdcLnk_and_Flt_PT1
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      facAdc2uDclnk_C
+      tauUdcPT1_C
+      uDcMax_C
+      uDcMin_C
+    /end REF_CHARACTERISTIC
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_CddPhaCur_CddRslvr_ISP_AnaCalnUdcLnk_and_Flt_PT1
+    /* Long identifier        */      "CDD_ISP/CddPhaCur&CddRslvr/ISP_AnaCalnUdcLnk and Flt/PT1"
+    /begin REF_MEASUREMENT
+      ISP_uDcFlt
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CDD_ISP_CDD_ISP_ISP_ResolverSel
+    /* Long identifier        */      "CDD_ISP/ISP_ResolverSel"
+    /begin REF_CHARACTERISTIC
+      IdROL_C
+      SC_pRsv_P
+      SC_p_P
+      agNegTrans_C
+      g_msgCore0to2_N111
+      g_msgCore0to2_N222
+      g_msgCore0to2_depth
+      g_msgCore0to2_detlaAngle_single
+      g_msgCore0to2_fbw
+      g_msgCore0to2_wb
+      offsAgRtrElec_C
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      B
+      ISP_agRoughCal
+      ISP_agRtrElec
+      ISP_agRtrPoleTrans
+      ISP_frqElec
+      ISP_n
+      ISP_n_test_notch
+      ISP_n_test_pp
+      ISP_speedref_final
+      ISP_speedref_final_wn
+      ISP_wElec
+      X111
+      X222
+      Y111
+      Y222
+      a1
+      a2
+      a3
+      b1
+      b2
+      b3
+      k1
+      k2
+      temp1_111
+      temp2_222
+      test2
+      test8
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_CoreMsgIf
+    /* Long identifier        */      "pmsmfoc/CoreMsgIf"
+    /begin REF_MEASUREMENT
+      ISP_n
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_PMC_SVM
+    /* Long identifier        */      "pmsmfoc/PMC&SVM"
+    /begin SUB_GROUP
+      pmsmfoc_PMC_SVM_PMC
+    /end SUB_GROUP
+    /begin REF_CHARACTERISTIC
+      FFW_enable
+      PWMFrqSwitch_C
+      SC_Ld_P
+      SC_Lq_P
+      SC_Psi_P
+      f32_P_AngleCompCur
+      f32_P_AngleCompVol
+      f32_P_Coef
+      f32_P_Modulation
+      g_msgCore0to2_AcrKi
+      g_msgCore0to2_AcrKiStb
+      g_msgCore0to2_AcrKp
+      g_msgCore0to2_AcrKpStb
+      g_msgCore0to2_AcrSwtHiRpm
+      g_msgCore0to2_AcrSwtLoRpm
+      g_msgCore0to2_AfrKp
+      g_msgCore0to2_AfrTi
+      g_msgCore0to2_CalibEn
+      g_msgCore0to2_DecoupleEn
+      g_msgCore0to2_FFW_Gain
+      g_msgCore0to2_MTPA_Gain
+      g_msgCore0to2_arc_dd_fi
+      g_msgCore0to2_clpwitch
+      g_msgCore0to2_dqLpf
+      g_msgCore0to2_dqLpfSpdCoef
+      g_msgCore0to2_linearKpEn
+      g_msgCore0to2_maxCur
+      g_msgCore0to2_maxFwcCurRatio
+      g_msgCore0to2_motorseq
+      g_msgCore0to2_pwmFrqSet
+      g_msgCore0to2_spdswitch
+      u16_P_MotorPair
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_IsdDes
+      PMC_IsqDes
+      PMC_TrqOutEst
+      PMC_UsdFlt
+      PMC_UsqFlt
+      usage
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /begin GROUP
+    /* Name                   */      pmsmfoc_PMC_SVM_PMC
+    /* Long identifier        */      "pmsmfoc/PMC&SVM/PMC"
+    /begin REF_CHARACTERISTIC
+      PWMFrqSwitch_C
+      g_msgCore0to2_pwmFrqSet
+    /end REF_CHARACTERISTIC
+    /begin REF_MEASUREMENT
+      PMC_UsMax
+      PMC_flgReqSafeSt
+      PMC_stGateDrv
+      PMC_tiPerd
+    /end REF_MEASUREMENT
+  /end GROUP
+
+  /end MODULE
+
+/end PROJECT
+/* (add any file trailer comments here) */
+/* EOF pmsmfoc.a2l*/

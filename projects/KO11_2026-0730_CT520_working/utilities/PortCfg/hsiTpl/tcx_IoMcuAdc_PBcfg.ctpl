@@ -1,0 +1,135 @@
+
+//---------------------------------------------------------------------------------------------------------------------
+// Includes
+//---------------------------------------------------------------------------------------------------------------------
+
+#include "tcx_IoMcuAdc.h"
+#include "Det.h"
+//---------------------------------------------------------------------------------------------------------------------
+// Configuration data
+//---------------------------------------------------------------------------------------------------------------------
+
+//#define  TCX_IOMCUADC_START_SECTION_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+//#include TCX_IOMCUADC_MEMMAP_H
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_CLEARED_16
+#include TCX_IOMCUADC_MEMMAP_H
+
+tcx_IoMcuAdc_ValueGroupType_tu16 tcx_IoMcuAdc_rambuffer[tcx_IoMcuAdc_noof_Channel];
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_CLEARED_16
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+//#define  TCX_IOMCUADC_START_SECTION_VAR_INIT_UNSPECIFIED
+//#include TCX_IOMCUADC_MEMMAP_H
+
+// Array definition to hold the information of RAM initial address location in dataset "tcx_IoMcuAdc_ConfigSet_INVGEN2"
+
+@tcx_IoMcuAdc_PBcfg_ctpl@
+
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_INIT_8 
+#include TCX_IOMCUADC_MEMMAP_H 
+
+//Array definition to hold the information of indices that is assigned to each trigger type in "tcx_IoMcuAdc_ConfigSet_INVGEN2"
+tcx_IoMcuAdc_GroupType_tu8 tcx_IoMcuAdc_Background_INVGEN2[1] = {3};
+tcx_IoMcuAdc_GroupType_tu8 tcx_IoMcuAdc_ADC_Event_Trigger1_INVGEN2[3] = {0,1,2};
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_INIT_8
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_INIT_UNSPECIFIED 
+#include TCX_IOMCUADC_MEMMAP_H
+// Trigger tcx_IoMcuAdc in "tcx_IoMcuAdc_ConfigSet_INVGEN2"
+static tcx_IoMcuAdc_Trigger_tst tcx_IoMcuAdc_ConfigSet_INVGEN2Trigger_acst[tcx_IoMcuAdc_noof_Trigger]=
+{
+{
+    1,
+    tcx_IoMcuAdc_Background_INVGEN2
+},
+{
+    0,
+    NULL_PTR
+},
+{
+    0,
+    NULL_PTR
+},
+{
+    3,
+    tcx_IoMcuAdc_ADC_Event_Trigger1_INVGEN2
+},
+{
+    0,
+    NULL_PTR
+},
+{
+    0,
+    NULL_PTR
+}
+};
+
+// Group info that is relevant for the initialization function of tcx_IoMcuAdc in "tcx_IoMcuAdc_ConfigSet_INVGEN2"
+const tcx_IoMcuAdc_ConfigType tcx_IoMcuAdc_ConfigSet_INVGEN2 =
+{
+    4,
+    tcx_IoMcuAdc_ConfigSet_INVGEN2Trigger_acst,
+    GroupRamIndex_INVGEN2,
+    tcx_IoMcuAdc_ConfigSet_INVGEN2SigGrpDescs_ast
+};
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_INIT_UNSPECIFIED 
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_INIT_UNSPECIFIED
+#include TCX_IOMCUADC_MEMMAP_H
+
+const tcx_IoMcuAdc_ConfigType * tcx_IoMcuAdc_GrpInfoConfigSetList_acpcst[1]=
+{
+    &tcx_IoMcuAdc_ConfigSet_INVGEN2
+};
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_INIT_UNSPECIFIED
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+#define  TCX_IOMCUADC_START_SECTION_CODE_NORMAL
+#include TCX_IOMCUADC_MEMMAP_H
+// Function definition of Group Notification function in "tcx_IoMcuAdc_ConfigSet_INVGEN2"
+
+void tcx_IoMcuCB_AdcGroup_Id0_INVGEN2(void)
+{
+ // AdcGroup_Id0 : No Callback Configured for this group 
+}
+
+void tcx_IoMcuCB_AdcGroup_Id2_INVGEN2(void)
+{
+ // AdcGroup_Id2 : No Callback Configured for this group 
+}
+
+void tcx_IoMcuCB_AdcGroup_Id1_INVGEN2(void)
+{
+ // AdcGroup_Id1 : No Callback Configured for this group 
+}
+
+void tcx_IoMcuCB_AdcGroup_Id3_INVGEN2(void)
+{
+ // AdcGroup_Id3 : No Callback Configured for this group 
+}
+
+
+#define  TCX_IOMCUADC_STOP_SECTION_CODE_NORMAL
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+//#define  TCX_IOMCUADC_STOP_SECTION_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+//#include TCX_IOMCUADC_MEMMAP_H
+

@@ -1,0 +1,103 @@
+    cLdAdptMon_T    
+    cLqAdptMon_T    
+    cPsiIsqAdptMot_TT    
+    ExFeedBack_T    
+    MTPA_T    
+    FFW_enable
+    
+        SC_Ld_P
+    
+        SC_Lq_P
+    
+        SC_Psi_P
+    
+        f32_P_AngleCompCur
+    
+        f32_P_AngleCompVol
+    
+        f32_P_Coef
+    
+        f32_P_Modulation
+    
+        g_msgCore0to2_AcrKi
+    
+        g_msgCore0to2_AcrKiStb
+    
+        g_msgCore0to2_AcrKp
+    
+        g_msgCore0to2_AcrKpStb
+    
+        g_msgCore0to2_AcrSwtHiRpm
+    
+        g_msgCore0to2_AcrSwtLoRpm
+    
+        g_msgCore0to2_AfrKp
+    
+        g_msgCore0to2_AfrTi
+    
+        g_msgCore0to2_DecoupleEn
+    
+        g_msgCore0to2_FFW_Gain
+    
+        g_msgCore0to2_MTPA_Gain
+    
+        g_msgCore0to2_arc_dd_fi
+    
+        g_msgCore0to2_dqLpf
+    
+        g_msgCore0to2_dqLpfSpdCoef
+    
+        g_msgCore0to2_maxCur
+    
+        g_msgCore0to2_maxFwcCurRatio
+    
+        g_msgCore0to2_pwmFrqSet
+    
+        g_msgCore0to2_spdswitch
+    
+        u16_P_MotorPair
+    
+        PWMFrqSwitch_C
+    
+        g_msgCore0to2_CalibEn
+    
+        g_msgCore0to2_clpwitch
+    
+        g_msgCore0to2_linearKpEn
+    
+        g_msgCore0to2_motorseq
+    
+    PMC_pwmfrq
+PMC_LpfSpdAct
+PMC_isdFlt
+ISP_iDaFild
+PMC_isqFlt
+ISP_iQaFild
+FOC_CurKp
+PMC_UsdScal
+PMC_UsqScal
+cmprU
+cmprV
+cmprW
+PMC_IsMax
+PMC_PsiMax
+PMC_FFW_opt
+PMC_MTPA_opt
+PMC_FWC_opt
+FOC_AcrKpCalOpt
+PMC_Ld
+PMC_Lq
+PMC_LqSubLd
+PMC_PsiExc
+PMC_LpfOpt
+Uq_output_limit
+q_volt_upper
+q_volt_lower
+usd_output
+usq_output
+d_integral
+q_integral
+q_decouple_Add_ffw
+d_decouple
+ToSee_idAnti_windup
+ToSee_iqAnti_windup

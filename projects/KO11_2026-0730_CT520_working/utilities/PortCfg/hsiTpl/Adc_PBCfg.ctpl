@@ -1,0 +1,65 @@
+/*-------------------------------------------------------------------------------------------------------------------*
+ * Includes
+ *-------------------------------------------------------------------------------------------------------------------*/
+#include "Adc.h"
+#include "Adc_Cfg.h"
+#include "tcx_Reg.h"
+
+/* declaration of callback functions */
+#define ADC_START_SECTION_CODE_FAST
+#include "Adc_MemMap.h"
+// QAC: Suppress WARNING ++: <=4=(3447) external linkage but this declaration is not in a header file. MISRA-C:2004 Rule 8.8
+// QAC: Reason: Callback functions need to be declared and config header is exported.
+// PRQA S 3447 TCX_ADC_END_3447_SUPRESSION
+//extern void tcx_IoMcuCB_AdcGroup_Id0_INVGEN2(void); //ZXC delete
+//extern void tcx_IoMcuCB_AdcGroup_Id1_INVGEN2(void);
+//extern void tcx_IoMcuCB_AdcGroup_Id2_INVGEN2(void);
+//extern void tcx_IoMcuCB_AdcGroup_Id3_INVGEN2(void);
+//extern void tcx_IoMcuCB_AdcGroup_Id4_INVGEN2(void);
+//extern void tcx_IoMcuCB_AdcGroup_Id5_INVGEN2(void);
+//extern void tcx_IoMcuCB_AdcGroup_Id6_INVGEN2(void);
+// PRQA L:TCX_ADC_END_3447_SUPRESSION
+#define ADC_STOP_SECTION_CODE_FAST
+#include "Adc_MemMap.h"
+
+
+/* Global Config */
+#define TCX_ADC_START_SECTION_CONST_32
+#include "Adc_MemMap.h"
+static const Adc_Cfg_GlobalConfigType Adc_Cfg_GlobalConfig_st =
+{
+    (ADC_CFG_PRESCALER - 1)
+};
+#define TCX_ADC_STOP_SECTION_CONST_32
+#include "Adc_MemMap.h"
+
+// Resolve the unit index from the name offset.
+#define TCX_ADC_START_SECTION_CONST_32
+#include "Adc_MemMap.h"
+// QAC: Suppress WARNING ++: <=4=(306) [I] Cast between a pointer to object and an integral type. MISRA-C:2004 Rule 11.3
+// QAC: Reason: Cast is required for HW access.
+// PRQA S 306 TCX_ADC_END_306_SUPRESSION
+
+@Adc_PBCfg_ctpl@ 
+
+//\ Definitions of Adc_ConfigType for each post build variant
+
+#define TCX_ADC_START_SECTION_CONST_32
+#include "Adc_MemMap.h"
+const Adc_ConfigType AdcConfigSet_INVGEN2 =
+{
+    &Adc_Cfg_GlobalConfig_st,                     /* global config ptr */
+    Adc_Cfg_UnitConfigType_INVGEN2_ast,           /* Hw config ptr */
+    Adc_Tc_GroupConfig_INVGEN2_ast,               /* group list ptr */
+    ADC_MAX_GROUPS,                               /* number of HW configs/unit entries */
+    ADC_MAX_GROUPS,                               /* number of group entries */
+    0xFF,                                         /* background group does not exist */
+    Adc_SignalIndex_INVGEN2_pcst,                 /* pointer to signal reference table */
+};
+
+#define TCX_ADC_STOP_SECTION_CONST_32
+#include "Adc_MemMap.h"
+
+
+
+//- End of File ---------------------------------------------------------------

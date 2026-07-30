@@ -1,0 +1,45 @@
+
+#ifndef DIO_CFG_H
+#define DIO_CFG_H 1
+
+/*
+**********************************************************************************************************************
+* Includes
+**********************************************************************************************************************
+*/
+
+//#include "Port_Cfg.h"
+#include "Dio_Types.h"
+
+/*
+**********************************************************************************************************************
+* Defines/Macros
+**********************************************************************************************************************
+*/
+
+/* General Configuration switches */
+#define DIO_VERSION_INFO_API                                                             STD_OFF
+#define DIO_DEV_ERROR_DETECT                                                             STD_OFF
+#define DIO_MEDC17_LEGACY_HEADER                                                         STD_OFF
+
+
+/* Number of configured signals in all PostBuid configurations = PostBuild array length */
+
+@Dio_cfg_htpl@
+
+
+/* External Declaration for PostBuild configurations */
+#define DIO_START_SEC_DEFAULT_CONST_UNSPECIFIED
+#include DIO_MEMMAP_H
+
+extern const Dio_ConfigType DioConfig_INVGEN2;
+//extern uint32* const        Dio_PortInfo_acpu32[7];
+
+#define DIO_STOP_SEC_DEFAULT_CONST_UNSPECIFIED
+#include DIO_MEMMAP_H
+
+#endif
+
+
+
+

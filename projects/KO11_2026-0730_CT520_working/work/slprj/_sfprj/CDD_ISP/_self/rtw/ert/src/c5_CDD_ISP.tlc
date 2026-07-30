@@ -1,0 +1,123 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   15 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "tempU"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:138-143"\
+    }\
+    ChartData {\
+      Name         "tempV"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:156-161"\
+    }\
+    ChartData {\
+      Name         "tempW"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:174-179"\
+    }\
+    ChartData {\
+      Name         "tempUU"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:192-198"\
+    }\
+    ChartData {\
+      Name         "tempVV"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:211-217"\
+    }\
+    ChartData {\
+      Name         "tempWW"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:230-236"\
+    }\
+    ChartData {\
+      Name         "stAlOfsCaltemp"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:249-263"\
+    }\
+    ChartData {\
+      Name         "cnt"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:276-279"\
+    }\
+    ChartData {\
+      Name         "tempofs"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:292-299"\
+    }\
+    ChartData {\
+      Name         "Angle"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:312-317"\
+    }\
+    ChartData {\
+      Name         "step"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:330-334"\
+    }\
+    ChartData {\
+      Name         "Iddes"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:347-352"\
+    }\
+    ChartData {\
+      Name         "agOffs_Caltemp_pos"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:365-383"\
+    }\
+    ChartData {\
+      Name         "agOffs_Caltemp_neg"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:396-414"\
+    }\
+    ChartData {\
+      Name         "times"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "CDD_ISP:1051:427-432"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

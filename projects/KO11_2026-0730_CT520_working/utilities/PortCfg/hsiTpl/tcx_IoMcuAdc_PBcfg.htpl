@@ -1,0 +1,83 @@
+
+#ifndef TCX_IOMCUADC_PBCFG_H
+#define TCX_IOMCUADC_PBCFG_H
+
+/*-------------------------------------------------------------------------------------------------------------------*
+ * Macros
+ *-------------------------------------------------------------------------------------------------------------------*/
+
+#define TCX_IOMCUADC_MEMMAP_H               "tcx_IoMcuAdc_MemMap.h"
+
+
+#define TCX_IOMCUADC_CFG_VERSION_INFO_API STD_ON
+#define TCX_IOMCUADC_CFG_DEV_ERROR_DETECT STD_ON
+
+@tcx_IoMcuAdc_PBcfg_htpl@
+
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_CLEARED_16
+#include TCX_IOMCUADC_MEMMAP_H
+
+extern tcx_IoMcuAdc_ValueGroupType_tu16 tcx_IoMcuAdc_rambuffer[tcx_IoMcuAdc_noof_Channel];
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_CLEARED_16
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_INIT_UNSPECIFIED
+#include TCX_IOMCUADC_MEMMAP_H
+
+extern tcx_IoMcuAdc_ValueGroupType_tu16* GroupRamIndex_INVGEN2[tcx_IoMcuAdc_noof_Trigger];
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_INIT_UNSPECIFIED
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_INIT_8
+#include TCX_IOMCUADC_MEMMAP_H
+
+extern tcx_IoMcuAdc_GroupType_tu8 tcx_IoMcuAdc_Background_INVGEN2[1];
+extern tcx_IoMcuAdc_GroupType_tu8 tcx_IoMcuAdc_ADC_Event_Trigger1_INVGEN2[3];
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_INIT_8
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+#define  TCX_IOMCUADC_START_SECTION_VAR_INIT_UNSPECIFIED
+#include TCX_IOMCUADC_MEMMAP_H
+// Prototype declaration of callback function and GroupNotification in "tcx_IoMcuAdc_ConfigSet_INVGEN2"
+extern const tcx_IoMcuAdc_ConfigType tcx_IoMcuAdc_ConfigSet_INVGEN2;
+
+#define  TCX_IOMCUADC_STOP_SECTION_VAR_INIT_UNSPECIFIED
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+#define  TCX_IOMCUADC_START_SECTION_CODE_NORMAL
+#include TCX_IOMCUADC_MEMMAP_H
+
+void tcx_IoMcuCB_AdcGroup_Id0_INVGEN2(void);
+void tcx_IoMcuCB_AdcGroup_Id2_INVGEN2(void);
+void tcx_IoMcuCB_AdcGroup_Id1_INVGEN2(void);
+void tcx_IoMcuCB_AdcGroup_Id3_INVGEN2(void);
+
+#define  TCX_IOMCUADC_STOP_SECTION_CODE_NORMAL
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+#define  TCX_IOMCUADC_START_SECTION_CODE_NORMAL
+#include TCX_IOMCUADC_MEMMAP_H
+// Prototype declaration of callback function which is called after all background channels conversion
+
+#define  TCX_IOMCUADC_STOP_SECTION_CODE_NORMAL
+#include TCX_IOMCUADC_MEMMAP_H
+
+
+
+#endif
+
+
+

@@ -1,0 +1,127 @@
+
+#ifndef ADC_CFG_H
+#define ADC_CFG_H
+
+#include "Adc_Prv_Types.h" //ZXC add
+#include "Platform_Types.h"
+
+/*-------------------------------------------------------------------------------------------------------------------*
+ * Includes
+ *-------------------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------------------------*
+ * Macros
+ *-------------------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------
+AdcPublishedInformation
+-------------------------*/
+#define ADC_CFG_CHANNEL_VALUESIGNED                   (STD_OFF)
+#define ADC_CFG_GROUP_FIRST_CHANNEL_FIXED             (STD_OFF)
+#define ADC_CFG_MAX_CHANNEL_RESOLUTION                (ADC_PRV_RESOLUTION_12BIT)
+
+/*-------------------------
+AdcGeneral
+-------------------------*/
+#define ADC_CFG_DEINIT_API                            (STD_OFF)
+#define ADC_CFG_DEV_ERROR_DETECT                      (STD_OFF) /*Set OFF to disable check in Adc_Init()*/
+#define ADC_CFG_ENABLE_LIMIT_CHECK                    (STD_OFF)
+#define ADC_CFG_ENABLE_QUEUING                        (STD_OFF)
+#define ADC_CFG_ENABLE_START_STOP_GROUP_API           (STD_ON)
+#define ADC_CFG_GRP_NOTIF_CAPABILITY                  (STD_ON)
+#define ADC_CFG_HW_TRIGGER_API                        (STD_ON)
+#define ADC_CFG_PRIORITY_IMPLEMENTATION               (ADC_PRV_PRIORITY_NONE)
+#define ADC_CFG_READ_GROUP_API                        (STD_ON)
+#define ADC_CFG_RESULT_ALIGNMENT                      (ADC_ALIGN_LEFT)
+#define ADC_CFG_VERSION_INFO_API                      (STD_ON)
+
+#define ADC_CFG_ENABLE_MEDC17_LEGACY                  (STD_ON)
+#define ADC_CFG_ENABLE_MUX_USE                        (STD_OFF)
+#define ADC_CFG_GETSTREAM_LASTPOINTER_API             (STD_ON)
+#define ADC_CFG_ENABLE_SAFETY_CHECK                   (STD_ON)
+#define ADC_CFG_POSTBUILD_SUPPORT                     (STD_ON)
+#define ADC_CFG_CHECK_SW_VERSION                      (STD_ON)
+#define ADC_CFG_CHECK_AUTOSAR_VERSION                 (STD_ON)
+#define ADC_CFG_CHECK_VENDOR_ID                       (STD_ON)
+#define ADC_CFG_PRESCALER                             (5)
+
+#define ADC_CFG_EMUX_CONTROL_UNITS                    (0)
+#define ADC_CFG_EMUX0_CONTROL                         (STD_OFF)
+#define ADC_CFG_EMUX1_CONTROL                         (STD_OFF)
+#define ADC_CFG_EMUX0_UNIT_CHANNELS                   (0)
+#define ADC_CFG_EMUX1_UNIT_CHANNELS                   (0)
+#define ADC_CFG_EMUX0_EXT_CHANNELS                    (0)
+#define ADC_CFG_EMUX1_EXT_CHANNELS                    (0)
+#define ADC_CFG_EMUX_MAX_CHANNELS                     (8)
+#define ADC_CFG_EMUX0_DMA_CHANNELS                    (0)
+#define ADC_CFG_EMUX1_DMA_CHANNELS                    (0)
+
+#define ADC_CFG_RESULT_REGISTER_ACCESS                (STD_ON)
+#define ADC_CFG_RESULT_DMA_TRANSFER                   (STD_OFF)
+/*!
+ ***************************************************************************************************
+ \brief Numeric IDs of ADC channels.
+ ***************************************************************************************************
+ */
+#define ADC_CH0                                       ((uint8)0)
+#define ADC_CH1                                       ((uint8)1)
+#define ADC_CH2                                       ((uint8)2)
+#define ADC_CH3                                       ((uint8)3)
+#define ADC_CH4                                       ((uint8)4)
+#define ADC_CH5                                       ((uint8)5)
+#define ADC_CH6                                       ((uint8)6)
+#define ADC_CH7                                       ((uint8)7)
+#define ADC_CH_MAX                                    ((uint8)8)
+
+
+
+
+// The enumerated name list of all signals.
+
+@Adc_Cfg_htpl@
+
+
+ //\brief Controller specific function mapping.
+
+#define Adc_Cfg_InitImpl(ConfigPtr)                   (tcx_AdcIfx_Init(ConfigPtr))
+#define Adc_Cfg_SetupResultBufferImpl(Group,DataBufferPtr) ((void)(0))
+#define Adc_Cfg_DeInitImpl()                          (tcx_AdcIfx_DeInit())
+#define Adc_Cfg_StartGroupConversionImpl(Group)       (tcx_AdcIfx_StartGroupConversion(Group))
+#define Adc_Cfg_StopGroupConversionImpl(Group)        (tcx_AdcIfx_StopGroupConversion(Group))
+#define Adc_Cfg_ReadGroupImpl(Group,DataBufferPtr)    ((void)(0))
+#define Adc_Cfg_EnableHardwareTriggerImpl(Group)      (tcx_AdcIfx_EnableHardwareTrigger(Group))
+#define Adc_Cfg_DisableHardwareTriggerImpl(Group)     (tcx_AdcIfx_DisableHardwareTrigger(Group))
+#define Adc_Cfg_EnableGroupNotificationImpl(Group)    ((void)(0))
+#define Adc_Cfg_DisableGroupNotificationImpl(Group)   ((void)(0))
+#define Adc_Cfg_GetGroupStatusImpl(Group)             ((void)(0))
+#define Adc_Cfg_GetStreamLastPointerImpl(Group,PtrToSamplePtr) (tcx_AdcIfx_GetStreamLastPointer(Group,PtrToSamplePtr))
+#define Adc_Cfg_SetChannelConversionImpl(SigRefPtr,Val) (tcx_AdcIfx_SetChannelConversion(SigRefPtr,Val))
+
+// Safety check interface
+#define Adc_Cfg_GetSafetyCheckResultImpl()            (tcx_AdcIfx_GetSafetyCheckResult())
+
+// Medc17 kegacy interface
+#define Adc_Cfg_StartForceLowImpl(Signal)             (tcx_AdcIfx_StartForceLow(Signal))
+#define Adc_Cfg_StopForceLowImpl()                    (tcx_AdcIfx_StopForceLow())
+
+
+/*!
+ ***************************************************************************************************
+ \brief Definitions of Adc_ConfigType for each post build variant
+ ***************************************************************************************************
+ */
+#define TCX_ADC_START_SECTION_CONST_32
+#include "Adc_MemMap.h"
+extern const Adc_ConfigType AdcConfigSet_INVGEN2;
+#define TCX_ADC_STOP_SECTION_CONST_32
+#include "Adc_MemMap.h"
+
+
+
+// Include for Medc17 legacy interface
+//#include "tcx_IoSigIfAdapt_Adc.h" ZXC delete
+
+#endif
+
+
+//- End of File ---------------------------------------------------------------

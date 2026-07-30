@@ -1,0 +1,80 @@
+    IdROL_C
+    
+        SC_pRsv_P
+    
+        SC_p_P
+    
+        f32_SpeedFltCoef
+    
+        facAdc2iPh_C
+    
+        facAdc2uDclnk_C
+    
+        g_msgCore0to2_L1
+    
+        g_msgCore0to2_L2
+    
+        g_msgCore0to2_N111
+    
+        g_msgCore0to2_N222
+    
+        g_msgCore0to2_depth
+    
+        g_msgCore0to2_detlaAngle_single
+    
+        g_msgCore0to2_fbw
+    
+        g_msgCore0to2_wb
+    
+        iPhaMax_C
+    
+        iPhaMin_C
+    
+        tauUdcPT1_C
+    
+        uDcMax_C
+    
+        uDcMin_C
+    
+        agNegTrans_C
+    
+        offsAgRtrElec_C
+    
+        rotatedirection_C
+    
+    ISP_frqElecCaln
+ISP_iPhaU
+ISP_iPhaV
+ISP_iPhaW
+ISP_uDcFlt
+ISP_frqElec
+ISP_wElec
+ISP_tmpMaxIGBT
+ISP_lossTotalIGBT
+ISP_iDcFlt
+ISP_tmpClnt
+ISP_speedref_final_wn
+X111
+X222
+Y111
+Y222
+test8
+ISP_n_test_pp
+test2
+B
+temp1_111
+temp2_222
+k1
+k2
+a1
+a2
+a3
+b1
+b2
+b3
+ISP_n_test_notch
+omega_hat_K_1
+theta_hat_K_1
+ISP_agRtrPoleTrans
+ISP_agRoughCal
+ISP_agRtrElec
